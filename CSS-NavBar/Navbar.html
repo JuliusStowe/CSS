@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Navbar</title>
+    <style>
+        .button {
+        background-color:transparent;
+        border:1px solid green;
+        color: green;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .button2{
+        background-color: transparent;
+        border:none;
+        color:rgb(58, 58, 58);
+      }
+      </style>
+</head>
+
+<body>
+    <nav class="Navbar">
+        <header>Navbar</header>
+        <a href="https:/google.com">Home</a>
+        <a href="https:/google.com">Link</a>
+            <select name="cars" id="cars">
+                <optgroup label="Cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </optgroup>
+            </select>
+            <button disabled class="button2">disabled</button>
+            <label for="site-search"></label>
+            <input type="search" id="site-search" placeholder="Scrivi Qui" />
+            <button class="button">Search</button>
+    </nav>
+</body>
+
+</html>
