@@ -1,0 +1,17 @@
+body{
+    width: 500px;
+    height: 500p;
+    border: 1px solid lightgray;
+    text-align: center;
+}
+
+img{
+    width: 500px;
+    height: 250px;
+}
+body >article{
+    text-align: left;
+}
+figcaption{
+    text-align: left;
+}
