@@ -1,11 +1,11 @@
 body {
-    background-color: var(--ball-background-color);
+    background-color: var(--body-background);
 }
 
 .ball {
     width: var(--ball-width);
     height:var(--ball-height);
-    background-color:var(--body-background);
+    background-color:var(--ball-background-color);
     border-radius: var(--ball-border-radius);
 }
 :root{
