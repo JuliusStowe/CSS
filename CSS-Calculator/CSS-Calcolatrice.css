@@ -1,0 +1,92 @@
+
+section{
+    width: 30%;
+    height: 300px;
+}
+div{
+    border: 1px solid gray;
+}
+section.Calculator{
+    display: grid;
+    grid-template-columns:repeat(4,minmax(auto, 1fr));
+    grid-template-rows: repeat(6,minmax(auto, 1fr));
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color:  #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   grid-template-areas:
+    "dis dis dis dis"
+    "somma sottrazione per div"
+    "st o  n  eq"
+    "q  c  s  eq"
+    "u  d  t  eq"
+    "z  punto  AC eq"
+    ;
+}
+#zero{
+    grid-area: z;
+}
+#uno{
+    grid-area: u;
+}
+#due{
+    grid-area: d;
+}
+#tre{
+    grid-area: t;
+}
+#quattro{
+    grid-area: q;
+}
+#cinque{
+    grid-area: c;
+}
+#sei{
+    grid-area: s;
+}
+#sette{
+    grid-area: st;
+}
+#otto{
+    grid-area: o;
+}
+#nove{
+    grid-area: n;
+}
+#moltiplicazione{
+    grid-area: per;
+}
+#somma{
+    grid-area: somma;
+}
+#sottrazione{
+    grid-area: sottrazione;
+}
+#divisione{
+    grid-area: div;
+}
+#eq{
+    grid-area: eq;
+    background-color: lightcoral;
+    
+}
+#AC{
+    grid-area: AC;
+}
+#punto{
+    grid-area: punto;
+}
+#Display{
+    grid-area: dis;
+    text-align: right;
+    background-color:gray;
+}
+#somma,
+#sottrazione,
+#moltiplicazione,
+#divisione{
+    background-color: lightgray;
+}
