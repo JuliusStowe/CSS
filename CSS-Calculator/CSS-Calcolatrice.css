@@ -1,4 +1,3 @@
-
 section{
     width: 30%;
     height: 300px;
@@ -71,7 +70,6 @@ section.Calculator{
 #eq{
     grid-area: eq;
     background-color: lightcoral;
-    
 }
 #AC{
     grid-area: AC;
