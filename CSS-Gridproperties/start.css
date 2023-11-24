@@ -79,13 +79,13 @@ li{
     height: auto;
     width: 100px;
     grid-area: b;
-    background-color: rgb(76, 76, 249);
+    background-color: rgb(76,76, 249);
 }
 p{
     font-size: 10px;
     margin: 15px;
 }
-#uno{
+#un o{
     grid-area: u;
     justify-self:right ;
     align-self: flex-end;
