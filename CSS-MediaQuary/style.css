@@ -14,17 +14,17 @@
     display: flex;
     justify-self: space-between;
     width: 300px;
-    height: 500px;
+    height: 350px;
     background:linear-gradient(#b2b2b2, #efefef);
     margin-left: 25px;
     border-radius: 20px;
-
+    box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.2);
 }
 
 img{
     display: flex;
     width: 300px;
-    height: 300px;
+    height: 160px;
     object-fit: contain;
 }
 .sphere{
@@ -34,16 +34,36 @@ img{
     border-radius: 50%;
 }
 header{
+    display: flex;
     margin-top: 5px;
     margin-left: 10px;
     display: grid;
-    /*
-    width: 150px;
-    grid-template-columns: repeat(2,150px);
-    */
     grid-template-rows:50px;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 4fr 1fr;
     align-content: stretch;
     align-items: center;
+}
+.cuore{
+    width: 25px;
+    height: 25px;
+    padding: 2px;
+    margin-left: 10px;
+}
+.menù{
+    display: grid;
+    width: 25px;
+    height: 25px;
 
+}
+.messaggi{
+    width: 25px;
+    height: 25px;
+    padding: 2px;
+    margin-left: 10px;
+}
+.icon{
+    display: flex;
+}
+.data{
+    color: white;
 }
