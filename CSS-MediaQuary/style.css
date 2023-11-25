@@ -1,4 +1,4 @@
-*{
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,7 +7,7 @@
 .contenuto{
     background-color: aqua;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding:90px;
 }
@@ -16,13 +16,15 @@
     justify-self: space-between;
     width: 300px;
     height: 500px;
-    background-color: green;
+    background:linear-gradient(#b2b2b2, #efefef);
+    margin-left: 25px;
+    border-radius: 20px;
 }
 
 img{
     display: flex;
     width: 300px;
-    height: 150px;
+    height: 300px;
     object-fit: contain;
 }
 .sphere{
@@ -34,9 +36,9 @@ img{
 header{
     margin-top: 5px;
     margin-left: 10px;
-    
+
     display: grid;
-    /*
+    /
     width: 150px;
     grid-template-columns: repeat(2,150px);
     */
