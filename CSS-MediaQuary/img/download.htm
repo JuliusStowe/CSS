@@ -1,0 +1,1204 @@
+
+<!doctype html>
+<html lang="it-IT">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.4",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach(e=>{let r=e.getAttribute("data-rocket-src");if(r&&0!==r.indexOf("data:")){0===r.indexOf("//")&&(r=location.protocol+r);try{let i=new URL(r).origin;i!==location.origin&&t.push({src:i,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(n){}}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._pendingWebpackRequests(this),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){if(await this._littleBreath(),!0===t.noModule&&"noModule"in HTMLScriptElement.prototype){t.setAttribute("data-rocket-status","skipped");return}return new Promise(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(){let t={};function e(e,r){!function e(r){!t[r]&&(t[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),t[r].originalFunctions.remove.apply(r,arguments)});function i(e){return t[r].eventsToRewrite.indexOf(e)>=0?"rocket-"+e:e}}(e),t[e].eventsToRewrite.push(r)}function r(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}e(document,"DOMContentLoaded"),e(window,"DOMContentLoaded"),e(window,"load"),e(window,"pageshow"),e(document,"readystatechange"),r(document,"onreadystatechange"),r(window,"onload"),r(window,"onpageshow")}_delayJQueryReady(t){let e;function r(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}function i(i){if(i&&i.fn&&!t.allJQueries.includes(i)){i.fn.ready=i.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(i):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(i)),i([])};let n=i.fn.on;i.fn.on=i.fn.init.prototype.on=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=r(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{let e=arguments[0][t];delete arguments[0][t],arguments[0][r(t)]=e})),n.apply(this,arguments),this},t.allJQueries.push(i)}e=i}i(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){i(t)}})}async _pendingWebpackRequests(t){let e=document.querySelector("script[data-webpack]");async function r(){return new Promise(t=>{e.addEventListener("load",t),e.addEventListener("error",t)})}e&&(await r(),await t._requestAnimFrame(),await t._pendingWebpackRequests(t))}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<link rel = "Shortcut Icon"  type = "image/x-icon" href = "https://magazine.arcaplanet.it/wp-content/themes/arcablog/img/favicon2.webp">
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v21.4 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Tutte le razze di gatti: la guida completa - ArcaMagazine</title><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Jost:ital@0;1&#038;family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&#038;family=Work+Sans:ital,wght@0,500;1,500&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital@0;1&#038;family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&#038;family=Work+Sans:ital,wght@0,500;1,500&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital@0;1&#038;family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&#038;family=Work+Sans:ital,wght@0,500;1,500&#038;display=swap" /></noscript><style id="rocket-critical-css">ul{box-sizing:border-box}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}@font-face{font-family:GothamRounded;src:url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Light.eot);src:url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Light.eot?#iefix) format("embedded-opentype"),url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Light.woff2) format("woff2"),url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Light.woff) format("woff"),url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Light.ttf) format("truetype");font-weight:100;font-style:normal;font-display:swap}@font-face{font-family:GothamRounded;src:url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Book.eot);src:url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Book.eot?#iefix) format("embedded-opentype"),url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Book.woff2) format("woff2"),url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Book.woff) format("woff"),url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Book.ttf) format("truetype");font-weight:300;font-style:normal;font-display:swap}@font-face{font-family:GothamRounded;src:url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Medium.eot);src:url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Medium.eot?#iefix) format("embedded-opentype"),url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Medium.woff2) format("woff2"),url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Medium.woff) format("woff"),url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Medium.ttf) format("truetype");font-weight:500;font-style:normal;font-display:swap}@font-face{font-family:GothamRounded;src:url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Bold.eot);src:url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Bold.eot?#iefix) format("embedded-opentype"),url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Bold.woff2) format("woff2"),url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Bold.woff) format("woff"),url(https://magazine.arcaplanet.it/wp-content/themes/arcablog/fonts/GothamRounded-Bold.ttf) format("truetype");font-weight:700;font-style:normal;font-display:swap}*,:after,:before{box-sizing:border-box;border:0 solid}:after,:before{--tw-content:""}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:GothamRounded,sans-serif;font-feature-settings:normal}body{margin:0;line-height:inherit}h2,h3,h4,h5{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}input{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}h2,h3,h4,h5{margin:0}ul{list-style:none;margin:0;padding:0}input::-moz-placeholder{opacity:1;color:#9ca3af}img,svg{display:block;vertical-align:middle}img{max-width:100%;height:auto}*,::backdrop,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x:;--tw-pan-y:;--tw-pinch-zoom:;--tw-scroll-snap-strictness:proximity;--tw-ordinal:;--tw-slashed-zero:;--tw-numeric-figure:;--tw-numeric-spacing:;--tw-numeric-fraction:;--tw-ring-inset:;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#3b82f680;--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur:;--tw-brightness:;--tw-contrast:;--tw-grayscale:;--tw-hue-rotate:;--tw-invert:;--tw-saturate:;--tw-sepia:;--tw-drop-shadow:;--tw-backdrop-blur:;--tw-backdrop-brightness:;--tw-backdrop-contrast:;--tw-backdrop-grayscale:;--tw-backdrop-hue-rotate:;--tw-backdrop-invert:;--tw-backdrop-opacity:;--tw-backdrop-saturate:;--tw-backdrop-sepia:}body{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity));font-family:GothamRounded,sans-serif;font-weight:300;--tw-text-opacity:1;color:rgb(0 0 0/var(--tw-text-opacity))}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{right:0;left:0}.inset-0,.inset-y-0{top:0;bottom:0}.left-0{left:0}.top-0{top:0}.right-0{right:0}.top-16{top:4rem}.right-16{right:4rem}.left-5{left:1.25rem}.top-5{top:1.25rem}.z-10{z-index:10}.z-50{z-index:50}.z-40{z-index:40}.mx-auto{margin-left:auto;margin-right:auto}.mb-10{margin-bottom:2.5rem}.mb-20{margin-bottom:5rem}.mt-4{margin-top:1rem}.mr-\[14px\]{margin-right:14px}.mt-\[34px\]{margin-top:34px}.mr-2{margin-right:.5rem}.mr-8{margin-right:2rem}.mt-12{margin-top:3rem}.mb-4{margin-bottom:1rem}.mt-8{margin-top:2rem}.mb-2{margin-bottom:.5rem}.mt-6{margin-top:1.5rem}.mt-9{margin-top:2.25rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.hidden{display:none}.h-full{height:100%}.h-5{height:1.25rem}.h-8{height:2rem}.h-screen{height:100vh}.h-4{height:1rem}.h-12{height:3rem}.h-auto{height:auto}.w-full{width:100%}.w-5{width:1.25rem}.w-8{width:2rem}.w-4{width:1rem}.w-12{width:3rem}.w-\[70px\]{width:70px}.w-11\/12{width:91.666667%}.max-w-\[310px\]{max-width:310px}.flex-1{flex:1 1 0%}.basis-1\/3{flex-basis:33.333333%}.translate-x-full{--tw-translate-x:100%}.translate-x-full{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-x-full{--tw-translate-x:-100%}.-translate-x-full{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.list-none{list-style-type:none}.flex-row{flex-direction:row}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-between{justify-content:space-between}.space-x-3\.5>:not([hidden])~:not([hidden]){--tw-space-x-reverse:0;margin-right:calc(.875rem*var(--tw-space-x-reverse));margin-left:calc(.875rem*(1 - var(--tw-space-x-reverse)))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.rounded-full{border-radius:9999px}.rounded-\[5px\]{border-radius:5px}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-black\/20{border-color:#0003}.border-black\/\[\.15\]{border-color:#00000026}.border-black\/50{border-color:#00000080}.bg-yellow{--tw-bg-opacity:1;background-color:rgb(255 213 0/var(--tw-bg-opacity))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity))}.bg-black\/25{background-color:#00000040}.bg-opacity-75{--tw-bg-opacity:0.75}.fill-black{fill:#000}.object-cover{-o-object-fit:cover;object-fit:cover}.p-8{padding:2rem}.p-4{padding:1rem}.p-12{padding:3rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-32{padding-top:8rem;padding-bottom:8rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.px-3{padding-left:.75rem;padding-right:.75rem}.pb-1{padding-bottom:.25rem}.pl-4{padding-left:1rem}.pl-9{padding-left:2.25rem}.pr-3{padding-right:.75rem}.pb-12{padding-bottom:3rem}.pr-\[15px\]{padding-right:15px}.pt-\[50\.6\%\]{padding-top:50.6%}.pt-0{padding-top:0}.pb-4{padding-bottom:1rem}.text-center{text-align:center}.text-xxs{font-size:.687rem}.text-xs{font-size:.75rem;line-height:1rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-\[10px\]{font-size:10px}.text-sm{font-size:.875rem;line-height:1.25rem}.font-medium{font-weight:500}.font-light{font-weight:300}.uppercase{text-transform:uppercase}.text-black\/50{color:#00000080}.opacity-0{opacity:0}.shadow-\[10px_10px_0px_0px_rgba\(255\2c 213\2c 0\2c 1\)\]{--tw-shadow:10px 10px 0px 0px #ffd500;--tw-shadow-colored:10px 10px 0px 0px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-\[5px_5px_0px_0px_rgba\(255\2c 213\2c 0\2c 1\)\]{--tw-shadow:5px 5px 0px 0px #ffd500;--tw-shadow-colored:5px 5px 0px 0px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.placeholder\:uppercase::-moz-placeholder{text-transform:uppercase}.placeholder\:text-black::-moz-placeholder{--tw-text-opacity:1;color:rgb(0 0 0/var(--tw-text-opacity))}@media (min-width:768px){.md\:absolute{position:absolute}.md\:left-12{left:3rem}.md\:top-12{top:3rem}.md\:top-0{top:0}.md\:left-0{left:0}.md\:mb-0{margin-bottom:0}.md\:mr-10{margin-right:2.5rem}.md\:mt-0{margin-top:0}.md\:mr-4{margin-right:1rem}.md\:block{display:block}.md\:flex{display:flex}.md\:hidden{display:none}.md\:h-full{height:100%}.md\:h-screen{height:100vh}.md\:w-full{width:100%}.md\:max-w-\[480px\]{max-width:480px}.md\:basis-7\/12{flex-basis:58.333333%}.md\:basis-5\/12{flex-basis:41.666667%}.md\:flex-row{flex-direction:row}.md\:flex-col{flex-direction:column}.md\:items-start{align-items:flex-start}.md\:items-center{align-items:center}.md\:border-l{border-left-width:1px}.md\:border-white\/50{border-color:#ffffff80}.md\:bg-yellow{--tw-bg-opacity:1;background-color:rgb(255 213 0/var(--tw-bg-opacity))}.md\:p-12{padding:3rem}.md\:px-5{padding-left:1.25rem;padding-right:1.25rem}.md\:py-12{padding-top:3rem;padding-bottom:3rem}.md\:pl-10{padding-left:2.5rem}.md\:pb-12{padding-bottom:3rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity))}}@media (min-width:1280px){.xl\:container{width:100%}@media (min-width:640px){.xl\:container{max-width:640px}}@media (min-width:768px){.xl\:container{max-width:768px}}@media (min-width:1024px){.xl\:container{max-width:1024px}}@media (min-width:1280px){.xl\:container{max-width:1280px}}.xl\:mx-auto{margin-left:auto;margin-right:auto}.xl\:block{display:block}.xl\:hidden{display:none}.xl\:w-4\/5{width:80%}.xl\:w-2\/5{width:40%}.xl\:w-\[120px\]{width:120px}.xl\:pr-\[60px\]{padding-right:60px}}:host,:root{--fa-style-family-brands:"Font Awesome 6 Brands";--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}:root{--dt-row-selected:13, 110, 253;--dt-row-selected-text:255, 255, 255;--dt-row-selected-link:9, 10, 11}</style>
+	<meta name="description" content="Arcaplanet: tante informazioni relative a storia, carattere, cura e alimentazione ideale di tutte le razze di gatto pure." />
+	<link rel="canonical" href="https://magazine.arcaplanet.it/razze-gatti/" />
+	<link rel="next" href="https://magazine.arcaplanet.it/razze-gatti/page/2/" />
+	<meta property="og:locale" content="it_IT" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Tutte le razze di gatti: la guida completa - ArcaMagazine" />
+	<meta property="og:description" content="Arcaplanet: tante informazioni relative a storia, carattere, cura e alimentazione ideale di tutte le razze di gatto pure." />
+	<meta property="og:url" content="https://magazine.arcaplanet.it/razze-gatti/" />
+	<meta property="og:site_name" content="ArcaMagazine" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@arcaplanet" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://magazine.arcaplanet.it/razze-gatti/","url":"https://magazine.arcaplanet.it/razze-gatti/","name":"Tutte le razze di gatti: la guida completa - ArcaMagazine","isPartOf":{"@id":"https://magazine.arcaplanet.it/#website"},"primaryImageOfPage":{"@id":"https://magazine.arcaplanet.it/razze-gatti/#primaryimage"},"image":{"@id":"https://magazine.arcaplanet.it/razze-gatti/#primaryimage"},"thumbnailUrl":"https://magazine.arcaplanet.it/wp-content/uploads/2023/04/gatto-balinese-scaled.jpg","description":"Arcaplanet: tante informazioni relative a storia, carattere, cura e alimentazione ideale di tutte le razze di gatto pure.","inLanguage":"it-IT"},{"@type":"ImageObject","inLanguage":"it-IT","@id":"https://magazine.arcaplanet.it/razze-gatti/#primaryimage","url":"https://magazine.arcaplanet.it/wp-content/uploads/2023/04/gatto-balinese-scaled.jpg","contentUrl":"https://magazine.arcaplanet.it/wp-content/uploads/2023/04/gatto-balinese-scaled.jpg","width":2560,"height":1702,"caption":"Gatto Balinese guida completa su carattere, cura e alimentazione della razza"},{"@type":"WebSite","@id":"https://magazine.arcaplanet.it/#website","url":"https://magazine.arcaplanet.it/","name":"ArcaMagazine","description":"il Magazine di Arcaplanet","publisher":{"@id":"https://magazine.arcaplanet.it/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://magazine.arcaplanet.it/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"it-IT"},{"@type":"Organization","@id":"https://magazine.arcaplanet.it/#organization","name":"ArcaMagazine","url":"https://magazine.arcaplanet.it/","logo":{"@type":"ImageObject","inLanguage":"it-IT","@id":"https://magazine.arcaplanet.it/#/schema/logo/image/","url":"https://magazine.arcaplanet.it/wp-content/uploads/2022/09/logo-arcaplanet-magazine.png","contentUrl":"https://magazine.arcaplanet.it/wp-content/uploads/2022/09/logo-arcaplanet-magazine.png","width":1260,"height":480,"caption":"ArcaMagazine"},"image":{"@id":"https://magazine.arcaplanet.it/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/Arcaplanet/","https://twitter.com/arcaplanet"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<style>
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='preload'  href='https://magazine.arcaplanet.it/wp-includes/css/dist/block-library/style.min.css?ver=6.3.2' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--background: #ffffff;--wp--preset--color--foreground: #404040;--wp--preset--color--primary: #FFD500;--wp--preset--color--secondary: #15803d;--wp--preset--color--tertiary: #0369a1;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}body { margin: 0;--wp--style--global--content-size: 48rem;--wp--style--global--wide-size: 60rem; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}a:where(:not(.wp-element-button)){text-decoration: underline;}.wp-element-button, .wp-block-button__link{background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;line-height: inherit;padding: calc(0.667em + 2px) calc(1.333em + 2px);text-decoration: none;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-background-color{color: var(--wp--preset--color--background) !important;}.has-foreground-color{color: var(--wp--preset--color--foreground) !important;}.has-primary-color{color: var(--wp--preset--color--primary) !important;}.has-secondary-color{color: var(--wp--preset--color--secondary) !important;}.has-tertiary-color{color: var(--wp--preset--color--tertiary) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-background-background-color{background-color: var(--wp--preset--color--background) !important;}.has-foreground-background-color{background-color: var(--wp--preset--color--foreground) !important;}.has-primary-background-color{background-color: var(--wp--preset--color--primary) !important;}.has-secondary-background-color{background-color: var(--wp--preset--color--secondary) !important;}.has-tertiary-background-color{background-color: var(--wp--preset--color--tertiary) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-background-border-color{border-color: var(--wp--preset--color--background) !important;}.has-foreground-border-color{border-color: var(--wp--preset--color--foreground) !important;}.has-primary-border-color{border-color: var(--wp--preset--color--primary) !important;}.has-secondary-border-color{border-color: var(--wp--preset--color--secondary) !important;}.has-tertiary-border-color{border-color: var(--wp--preset--color--tertiary) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link data-minify="1" rel='preload'  href='https://magazine.arcaplanet.it/wp-content/cache/min/1/wp-content/plugins/wordpress-popular-posts/assets/css/wpp.css?ver=1698604746' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link rel='preload'  href='https://magazine.arcaplanet.it/wp-content/themes/arcablog/css/splide.min.css?ver=1700870114' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link data-minify="1" rel='preload'  href='https://magazine.arcaplanet.it/wp-content/cache/min/1/wp-content/themes/arcablog/style.css?ver=1698604746' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<script id="wpp-json" type="application/json">
+{"sampling_active":0,"sampling_rate":100,"ajax_url":"https:\/\/magazine.arcaplanet.it\/wp-json\/wordpress-popular-posts\/v1\/popular-posts","api_url":"https:\/\/magazine.arcaplanet.it\/wp-json\/wordpress-popular-posts","ID":0,"token":"314656103c","lang":0,"debug":0}
+</script>
+<script type="rocketlazyloadscript" data-rocket-src='https://magazine.arcaplanet.it/wp-content/plugins/wordpress-popular-posts/assets/js/wpp.min.js?ver=6.3.2' id='wpp-js-js' defer></script>
+<link rel="https://api.w.org/" href="https://magazine.arcaplanet.it/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://magazine.arcaplanet.it/xmlrpc.php?rsd" />
+            <style id="wpp-loading-animation-styles">@-webkit-keyframes bgslide{from{background-position-x:0}to{background-position-x:-200%}}@keyframes bgslide{from{background-position-x:0}to{background-position-x:-200%}}.wpp-widget-placeholder,.wpp-widget-block-placeholder,.wpp-shortcode-placeholder{margin:0 auto;width:60px;height:3px;background:#dd3737;background:linear-gradient(90deg,#dd3737 0%,#571313 10%,#dd3737 100%);background-size:200% auto;border-radius:3px;-webkit-animation:bgslide 1s infinite linear;animation:bgslide 1s infinite linear}</style>
+            		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		
+		
+
+<!-- This site is optimized with the Schema plugin v1.7.9.5 - https://schema.press -->
+<script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://magazine.arcaplanet.it",
+                "name": "Home"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://magazine.arcaplanet.it/razze-gatti/",
+                "name": "Razze gatti"
+            }
+        }
+    ]
+}</script>
+
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><script type="rocketlazyloadscript">
+/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){}}
+var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload")}catch(e){ret=!1}
+return function(){return ret}})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){link.media=finalMedia}
+if(link.addEventListener){link.addEventListener("load",enableStylesheet)}else if(link.attachEvent){link.attachEvent("onload",enableStylesheet)}
+setTimeout(function(){link.rel="stylesheet";link.media="only x"});setTimeout(enableStylesheet,3000)};rp.poly=function(){if(rp.support()){return}
+var links=w.document.getElementsByTagName("link");for(var i=0;i<links.length;i++){var link=links[i];if(link.rel==="preload"&&link.getAttribute("as")==="style"&&!link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss",!0);rp.bindMediaToggle(link)}}};if(!rp.support()){rp.poly();var run=w.setInterval(rp.poly,500);if(w.addEventListener){w.addEventListener("load",function(){rp.poly();w.clearInterval(run)})}else if(w.attachEvent){w.attachEvent("onload",function(){rp.poly();w.clearInterval(run)})}}
+if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}
+else{w.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this))
+</script>	<!-- Google Tag Manager -->
+	<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-MTQN8DV');</script>
+	<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="archive post-type-archive post-type-archive-razze-gatti wp-embed-responsive">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTQN8DV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div id="site-wrap" class="px-4">
+
+	
+
+	<div id="overlay" class="opacity-0 fixed z-40 inset-0 h-screen w-full bg-black/25 bg-opacity-75 transition-opacity duration-1000 pointer-events-none"></div>
+
+	
+    <div id="menu-drawer" class="fixed z-50 left-0 top-0 h-screen w-full xl:w-2/5 md:h-screen p-12 bg-white -translate-x-full transition-transform duration-1000 ease-[cubic-bezier(0.61,0.13,0.26,0.67)] overflow-y-auto">
+
+        <div class="flex flex-row justify-between items-center">
+            <div class="uppercase text-xxs font-light">Menu</div>
+            <div id="hamburger-close-desktop" class="p-4 w-12 h-12 rounded-full border border-black/[.15] cursor-pointer">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                <path d="M7.64337 7.11998L1.35347 0.830078L0.646362 1.53718L6.93627 7.82709L1.11697 13.6464L1.82407 14.3535L7.64337 8.5342L13.4627 14.3535L14.1698 13.6464L8.35048 7.82709L14.6404 1.53718L13.9333 0.830078L7.64337 7.11998Z" fill="black"/>
+                </svg>
+            </div>
+        </div>
+
+        
+            <div class="flex flex-row justify-between mt-12 pb-12 border-b border-black/20">
+
+                <div class="text-center pr-[15px] xl:pr-[60px]">
+
+                    
+                        <div class = "relative rounded-[5px] overflow-hidden">
+                            <img width="120" height="120" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20120%20120'%3E%3C/svg%3E" class="w-[70px] h-auto xl:w-[120px]" alt="Cane articoli blog Arcaplanet" decoding="async" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/unsplash_N04FIfHhv_k.jpg" /><noscript><img width="120" height="120" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/unsplash_N04FIfHhv_k.jpg" class="w-[70px] h-auto xl:w-[120px]" alt="Cane articoli blog Arcaplanet" decoding="async" /></noscript>
+                            <a class = "block absolute w-full h-full top-0 left-0" href = "https://magazine.arcaplanet.it/cane/"></a>
+                        </div>
+
+                        
+                    <h4 class="uppercase text-sm font-medium inline-block border-b border-black/50 pb-1 mt-4 text-center">
+
+                        <a class = "hover:text-yellow transition-colors hover:border-yellow" href = "https://magazine.arcaplanet.it/cane/">Cane</a>
+
+                    </h4>
+                </div>
+
+                <div class="font-light flex-1">
+
+                    
+                        <h5 class="uppercase text-black/50 text-xxs mb-4">Categorie</h5>
+
+                        <ul class="list-none text-sm space-y-4">
+
+                            
+                                    <li>
+
+                                        <a class = "hover:text-yellow transition-colors" href = "https://magazine.arcaplanet.it/cane/benessere-e-salute-c/">Benessere e salute</a>
+
+                                    </li>
+
+                                    
+                                    <li>
+
+                                        <a class = "hover:text-yellow transition-colors" href = "https://magazine.arcaplanet.it/cane/comportamento-e-gioco-c/">Comportamento e gioco</a>
+
+                                    </li>
+
+                                    
+                                    <li>
+
+                                        <a class = "hover:text-yellow transition-colors" href = "https://magazine.arcaplanet.it/cane/alimentazione-c/">Alimentazione</a>
+
+                                    </li>
+
+                                    
+                                    <li>
+
+                                        <a class = "hover:text-yellow transition-colors" href = "https://magazine.arcaplanet.it/cane/vet-stories/">Vet stories</a>
+
+                                    </li>
+
+                                    
+                                    <li>
+
+                                        <a class = "hover:text-yellow transition-colors" href = "https://magazine.arcaplanet.it/cane/puppy/">Puppy</a>
+
+                                    </li>
+
+                                    
+                        </ul>
+
+                        
+                </div>
+
+                
+                    <div class="font-light">
+                        <h5 class="uppercase text-black/50 text-xxs mb-4">Le razze</h5>
+                        <ul class="list-none text-sm font-light space-y-4">
+                            <li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-cani/taglia-grande/">Taglia grande</a></li> <li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-cani/taglia-media/">Taglia media</a></li> <li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-cani/taglia-piccola/">Taglia piccola</a></li>                        </ul>
+                    </div>
+
+                    
+            </div>
+
+            
+            <div class="flex flex-row justify-between mt-12 pb-12 border-b border-black/20">
+
+                <div class="text-center pr-[15px] xl:pr-[60px]">
+
+                    
+                        <div class = "relative rounded-[5px] overflow-hidden">
+                            <img width="120" height="120" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20120%20120'%3E%3C/svg%3E" class="w-[70px] h-auto xl:w-[120px]" alt="Gatti articoli blog Arcaplanet" decoding="async" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/unsplash_uhnbTZC7N9k.jpg" /><noscript><img width="120" height="120" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/unsplash_uhnbTZC7N9k.jpg" class="w-[70px] h-auto xl:w-[120px]" alt="Gatti articoli blog Arcaplanet" decoding="async" /></noscript>
+                            <a class = "block absolute w-full h-full top-0 left-0" href = "https://magazine.arcaplanet.it/gatto/"></a>
+                        </div>
+
+                        
+                    <h4 class="uppercase text-sm font-medium inline-block border-b border-black/50 pb-1 mt-4 text-center">
+
+                        <a class = "hover:text-yellow transition-colors hover:border-yellow" href = "https://magazine.arcaplanet.it/gatto/">Gatto</a>
+
+                    </h4>
+                </div>
+
+                <div class="font-light flex-1">
+
+                    
+                        <h5 class="uppercase text-black/50 text-xxs mb-4">Categorie</h5>
+
+                        <ul class="list-none text-sm space-y-4">
+
+                            
+                                    <li>
+
+                                        <a class = "hover:text-yellow transition-colors" href = "https://magazine.arcaplanet.it/gatto/benessere-e-salute-g/">Benessere e salute</a>
+
+                                    </li>
+
+                                    
+                                    <li>
+
+                                        <a class = "hover:text-yellow transition-colors" href = "https://magazine.arcaplanet.it/gatto/comportamento-e-gioco-g/">Comportamento e gioco</a>
+
+                                    </li>
+
+                                    
+                                    <li>
+
+                                        <a class = "hover:text-yellow transition-colors" href = "https://magazine.arcaplanet.it/gatto/alimentazione-g/">Alimentazione</a>
+
+                                    </li>
+
+                                    
+                                    <li>
+
+                                        <a class = "hover:text-yellow transition-colors" href = "https://magazine.arcaplanet.it/gatto/vet-stories-consigli/">Vet stories</a>
+
+                                    </li>
+
+                                    
+                                    <li>
+
+                                        <a class = "hover:text-yellow transition-colors" href = "https://magazine.arcaplanet.it/gatto/kitty/">Kitty</a>
+
+                                    </li>
+
+                                    
+                        </ul>
+
+                        
+                </div>
+
+                
+                    <div class="font-light">
+                        <h5 class="uppercase text-black/50 text-xxs mb-4">Le razze</h5>
+                        <ul class="list-none text-sm font-light space-y-4">
+                            <li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-gatti/pelo-corto/">A pelo corto</a></li> <li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-gatti/pelo-lungo/">A pelo lungo</a></li> <li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-gatti/pelo-medio/">A pelo medio</a></li> <li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-gatti/senza-pelo/">Senza pelo</a></li> <li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-gatti/taglia-grande/">Taglia grande</a></li> <li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-gatti/taglia-media/">Taglia media</a></li> <li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-gatti/taglia-piccola/">Taglia piccola</a></li>                        </ul>
+                    </div>
+
+                    
+            </div>
+
+            
+            <div class="flex flex-row justify-between mt-12 pb-12 border-b border-black/20">
+
+                <div class="text-center pr-[15px] xl:pr-[60px]">
+
+                    
+                        <div class = "relative rounded-[5px] overflow-hidden">
+                            <img width="120" height="120" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20120%20120'%3E%3C/svg%3E" class="w-[70px] h-auto xl:w-[120px]" alt="Uccelli roditori rettili altri animali articoli blog Arcaplanet" decoding="async" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/unsplash_uhnbTZC7N9ks.jpg" /><noscript><img width="120" height="120" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/unsplash_uhnbTZC7N9ks.jpg" class="w-[70px] h-auto xl:w-[120px]" alt="Uccelli roditori rettili altri animali articoli blog Arcaplanet" decoding="async" /></noscript>
+                            <a class = "block absolute w-full h-full top-0 left-0" href = "https://magazine.arcaplanet.it/altri-animali/"></a>
+                        </div>
+
+                        
+                    <h4 class="uppercase text-sm font-medium inline-block border-b border-black/50 pb-1 mt-4 text-center">
+
+                        <a class = "hover:text-yellow transition-colors hover:border-yellow" href = "https://magazine.arcaplanet.it/altri-animali/">Altri animali</a>
+
+                    </h4>
+                </div>
+
+                <div class="font-light flex-1">
+
+                    
+                        <h5 class="uppercase text-black/50 text-xxs mb-4">Categorie</h5>
+
+                        <ul class="list-none text-sm space-y-4">
+
+                            
+                                    <li>
+
+                                        <a class = "hover:text-yellow transition-colors" href = "https://magazine.arcaplanet.it/altri-animali/alimentazione-a/">Alimentazione</a>
+
+                                    </li>
+
+                                    
+                                    <li>
+
+                                        <a class = "hover:text-yellow transition-colors" href = "https://magazine.arcaplanet.it/altri-animali/benessere-e-salute-a/">Benessere e salute</a>
+
+                                    </li>
+
+                                    
+                        </ul>
+
+                        
+                </div>
+
+                
+            </div>
+
+            
+        <div class="mt-12">
+            <div class="flex flex-row">
+                <div class="font-light basis-1/2">
+
+                    <div class="mb-6">
+                        <h4 class="uppercase text-sm font-medium inline-block border-b border-black/50 pb-1 mt-4">News</h4>
+                    </div>
+
+                    <ul class="list-none text-sm space-y-4 xl:pr-[30px]">
+
+                        <li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/news/trimestre-anti-inflazione/">Arcaplanet aderisce al trimestre anti inflazione. Ancora e sempre, vicino a voi</a></li><li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/news/arcaplanet-e-conte-per-una-maggiore-protezione-sicurezza-tranquillita-e-salute-del-tuo-pet/">Arcaplanet è ConTe per una maggiore protezione, sicurezza, tranquillità e salute del tuo pet!</a></li><li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/news/arcaplanet-insieme-a-enpa-contro-labbandono-degli-animali-domestici/">Arcaplanet insieme a ENPA contro l&#8217;abbandono degli animali domestici</a></li><li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/news/roma-cura-roma-partecipa-anche-tu-alliniziativa/">&#8220;Cura la Natura&#8221;: partecipa all&#8217;iniziativa!</a></li><li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/news/arcaplanet-a-quattrozampeinfiera-a-napoli-2023/">Arcaplanet a Quattrozampeinfiera a Napoli 2023!</a></li>
+                    </ul>
+                </div>
+                <div class="font-light basis-1/2">
+
+                    <div class="mb-6">
+                        <h4 class="uppercase text-sm font-medium inline-block border-b border-black/50 pb-1 mt-4">Eventi</h4>
+                    </div>
+
+                    <ul class="list-none text-sm font-light space-y-4 xl:pr-[30px]">
+                        <li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/eventi/inaugurazioni-pet-store/ce-un-nuovo-pet-store-arcaplanet-a-napoli/">C&#8217;è un nuovo Pet store Arcaplanet a Napoli</a></li><li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/eventi/inaugurazioni-pet-store/arriva-un-nuovo-pet-store-a-roma/">Arriva un nuovo Pet Store a Roma</a></li><li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/eventi/inaugurazioni-pet-store/ce-un-nuovo-pet-store-a-parma/">C&#8217;è un nuovo Pet Store a Parma</a></li><li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/eventi/eventi-speciali/alessandro-enriquez-x-arcaplanet-una-capsule-collection-a-sostegno-della-pet-therapy/">La capsule collection di Alessandro Enriquez per sostenere la pet therapy</a></li><li><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/eventi/eventi-speciali/natale-buono-due-volte-con-i-prodotti-arcaplanet/">Arcaplanet sostiene ENPA: un Natale buono due volte</a></li>                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- #menu-drawer -->
+
+    
+	<!-- HEADER -->
+	<div class="xl:container xl:mx-auto">
+
+		<div class="flex flex-row justify-between items-center md:items-start pt-0 pb-4 md:py-12">
+			<!-- hamburger -->
+			<div id="hamburger-mobile" class="md:hidden cursor-pointer">
+				<svg width="19" height="12" viewBox="0 0 19 12" fill="none">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0.5H15V1.5H0V0.5ZM0 5.5L18.125 5.50001V6.50001L0 6.5V5.5ZM0 10.5H15V11.5H0V10.5Z" fill="black"/>
+				</svg>
+			</div>
+
+			<!-- logo -->
+			<div class="logo mt-9 md:mt-0">
+				<a href="https://magazine.arcaplanet.it/" rel="home"><img width="205" height="76" width = "205" height = "76" alt = "logo" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20205%2076'%3E%3C/svg%3E" alt="" data-lazy-src="https://magazine.arcaplanet.it/wp-content/themes/arcablog/img/logo-arcamagazine.svg"><noscript><img width="205" height="76" width = "205" height = "76" alt = "logo" src="https://magazine.arcaplanet.it/wp-content/themes/arcablog/img/logo-arcamagazine.svg" alt=""></noscript></a>
+			</div>
+
+			<!-- search -->
+			<div class="hidden md:block basis-1/3">
+				<form class = "block" methhod = "get" action = "https://magazine.arcaplanet.it/">
+					<label class="relative block">
+						<span class="sr-only">Search</span>
+						<span class="absolute inset-y-0 left-0 flex items-center pl-4">
+							<svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.35 11.934a5.888 5.888 0 0 1-3.216.956C2.746 12.89 0 10.003 0 6.444 0 2.885 2.746 0 6.134 0c3.387 0 6.134 2.885 6.134 6.445a6.582 6.582 0 0 1-1.946 4.708l3.508 3.779a.645.645 0 0 1-.02.893.6.6 0 0 1-.866-.02L9.35 11.934Zm1.692-5.49c0 2.886-2.22 5.182-4.908 5.182-2.689 0-4.908-2.296-4.908-5.181 0-2.885 2.22-5.182 4.908-5.182s4.908 2.297 4.908 5.182Z" /></svg>
+						</span>
+						<input class="placeholder:uppercase placeholder:text-black block bg-white w-full border border-black/[.15] rounded-full py-3 pl-9 pr-3 focus:outline-none focus:border-black text-xxs" placeholder="Cerca nel blog" type="search" name="s"/>
+					</label>
+				</form>
+			</div>
+
+			<!-- shop -->
+			<a href="https://www.arcaplanet.it/" class="flex items-center md:bg-yellow rounded-full py-3 md:px-5 uppercase text-xxs font-medium">
+				<svg class="h-5 w-5 fill-black mr-2 md:mr-4" viewBox="0 0 24 24"><path d="M21.9 9c0-.6-.1-1.2-.4-1.7l-1.1-4.4c-.1-.4-.5-.8-1-.8H4.6c-.5 0-.9.3-1 .8l-1.3 5c0 .3-.1.5-.1.8v.5c0 1.1.5 2.1 1.2 2.8v8.8c0 .6.4 1 1 1h15.7c.6 0 1-.4 1-1v-9.5c.5-.6.8-1.4.8-2.3zm-17.8.2v-.1c0-.2.1-.3.1-.5v-.1l1.1-4.3h13.2l.9 3.8c0 .1 0 .2.1.2.2.3.2.6.2.9 0 .5-.2 1-.6 1.4-.4.4-.9.6-1.4.6-1 0-1.9-.8-1.9-1.8 0-.5-.5-.9-1-.9-.6 0-1 .5-1 1.1 0 .5-.2 1-.6 1.4-.2.1-.7.3-1.2.3-1.1 0-1.9-.9-1.9-2 0-.6-.5-1-1-1-.6 0-1 .5-1 1.1 0 1.1-.9 1.9-2 1.9s-2-.9-2-2zm9.5 10.7h-2.9v-2.4h2.9v2.4zm2 0v-3.4c0-.6-.4-1-1-1H9.7c-.6 0-1 .4-1 1v3.4H5.3v-6.8c.2 0 .5.1.7.1 1.1 0 2-.4 2.8-1.1l.2-.2c.7.8 1.8 1.3 2.9 1.3 1 0 2-.4 2.8-1.1l.3-.3c.7.7 1.7 1.2 2.8 1.2.4 0 .8-.1 1.1-.2v7.1h-3.3z"/></svg>
+				<span class="hidden md:block">Vai a Arcaplanet.it</span>
+				<span class="md:hidden">Shop</span>
+			</a>
+		</div>
+
+		
+        <div class="hidden md:flex md:flex-row md:items-center pb-12">
+            <!-- hamburger -->
+            <div id="hamburger-desktop" class="mr-8 p-4 w-12 h-12 rounded-full border border-black/[.15] cursor-pointer">
+                <svg width="19" height="12" viewBox="0 0 19 12" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0.5H15V1.5H0V0.5ZM0 5.5L18.125 5.50001V6.50001L0 6.5V5.5ZM0 10.5H15V11.5H0V10.5Z" fill="black"/>
+                </svg>
+            </div>
+
+            <!-- menu -->
+            
+            
+    <div id="menu-desktop" class="flex space-x-3.5">
+
+        
+    <a class = "vctheme-icon-button flex items-center rounded-full py-2 px-6 border border-black/[.15] font-light text-xl hover:bg-yellow transition-colors" href = "https://magazine.arcaplanet.it/cane/">
+
+        <span class = "vctheme-icon-button__icon h-8 w-8 fill-slate-300 mr-[14px]">
+				<svg viewBox="0 0 32 32"><path d="M14.485 14.287a1.067 1.067 0 1 1-2.133 0 1.067 1.067 0 0 1 2.133 0ZM20.202 14.287a1.067 1.067 0 1 1-2.133 0 1.067 1.067 0 0 1 2.133 0Z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="m16 4.134-.021-.002a5.779 5.779 0 0 0-.968.04 7.112 7.112 0 0 0-2.386.754c-.342.178-.69.393-1.039.65a4.99 4.99 0 0 0-3.777.143c-1.202.531-2.2 1.465-2.984 2.426-.79.966-1.395 2-1.802 2.786a17.775 17.775 0 0 0-.618 1.328l-.009.021-.002.007-.001.002.634.248-.635-.247a.682.682 0 0 0-.034.122c-.226 1.207-.091 2.159.353 2.875.443.717 1.127 1.087 1.77 1.272a5.233 5.233 0 0 0 1.44.184l-.022.06a.693.693 0 0 0-.013.04l.651.198-.651-.199-.001.002v.003l-.003.008-.008.027a7.534 7.534 0 0 0-.105.43c-.06.285-.132.689-.177 1.175-.089.967-.077 2.287.35 3.65.43 1.374 1.282 2.781 2.845 3.896 1.522 1.085 3.675 1.862 6.68 2.103.1.04.208.058.318.048.026-.003.056-.004.106-.006h.006l.103-.006.102.006h.003c.048.002.082.003.116.006a.68.68 0 0 0 .312-.048c3.005-.241 5.158-1.018 6.68-2.103 1.564-1.115 2.414-2.522 2.845-3.896.427-1.363.44-2.683.35-3.65a10.184 10.184 0 0 0-.256-1.511 4.19 4.19 0 0 0-.026-.094l-.008-.027-.002-.008v-.003s-.001-.002-.653.197l.652-.199a.715.715 0 0 0-.015-.042l-.021-.057c.424.001.934-.04 1.44-.184.643-.185 1.327-.555 1.77-1.272.444-.716.58-1.668.353-2.876a.677.677 0 0 0-.034-.121l-.635.247.635-.247v-.001l-.002-.002-.002-.007-.009-.02a7.44 7.44 0 0 0-.152-.36 17.736 17.736 0 0 0-.466-.969c-.407-.785-1.013-1.82-1.802-2.786-.784-.96-1.782-1.895-2.984-2.426a4.99 4.99 0 0 0-3.777-.142 7.744 7.744 0 0 0-1.039-.65 7.111 7.111 0 0 0-2.386-.755 5.778 5.778 0 0 0-.968-.04l-.02.002Zm-6.745 7.158 1.352-2.72a8.042 8.042 0 0 1 1.45-1.631.678.678 0 0 0 .158-.13 6.44 6.44 0 0 1 1.038-.676 5.751 5.751 0 0 1 1.928-.611 4.42 4.42 0 0 1 .714-.032 1.2 1.2 0 0 1 .03.002h.003a.68.68 0 0 0 .144 0h.003l.03-.002c.03-.002.078-.004.143-.005.13 0 .326.006.571.037a5.75 5.75 0 0 1 1.928.61c.332.173.682.394 1.038.677.046.052.1.095.16.13 1.18.998 2.4 2.7 3.2 5.621a.69.69 0 0 0 .014.045l.2.569a642.862 642.862 0 0 0 1.08 3.049c.148.412.281.776.378 1.031l.017.065c.016.06.04.154.065.274.051.242.113.593.153 1.017.079.854.063 1.98-.294 3.117-.353 1.127-1.042 2.273-2.336 3.195-1.19.849-2.928 1.534-5.464 1.805v-3.813l.042-.019a8.587 8.587 0 0 0 1.068-.562c.39-.244.81-.56 1.14-.95.332-.39.609-.9.609-1.51 0-.485-.098-.922-.334-1.286-.239-.37-.577-.6-.937-.74-.647-.252-1.485-.252-2.218-.252h-.101c-.733 0-1.571 0-2.219.252-.36.14-.698.37-.937.74-.235.364-.333.8-.333 1.285 0 .61.277 1.12.608 1.51.33.39.752.707 1.14.95.394.247.782.436 1.07.563l.04.018v3.865c-2.84-.225-4.744-.947-6.018-1.856-1.293-.922-1.983-2.068-2.336-3.195-.357-1.137-.372-2.263-.293-3.117a8.838 8.838 0 0 1 .217-1.291l.018-.066c.091-.247.217-.595.36-.99a.682.682 0 0 0 .045-.126 500.253 500.253 0 0 0 1.051-2.962l.2-.568a17.091 17.091 0 0 1 .414-1.317Zm16.576 4.083a5.363 5.363 0 0 1-.257-.02l-.086-.24a410.774 410.774 0 0 1-.845-2.39l-.19-.545c-.7-2.544-1.721-4.3-2.828-5.508.73-.105 1.4.02 2.016.293.93.41 1.766 1.167 2.48 2.041.709.87 1.266 1.816 1.647 2.552a16.464 16.464 0 0 1 .537 1.144l.01.025c.026.146.044.282.056.41.066.708-.065 1.152-.24 1.433-.21.34-.553.555-.988.68-.44.126-.921.144-1.312.125Zm-11.616 3.953c-.053.083-.115.24-.115.546 0 .18.08.388.285.63.206.242.499.472.825.676a7.225 7.225 0 0 0 1.067.545 7.225 7.225 0 0 0 1.068-.545c.326-.204.62-.434.825-.676.205-.242.285-.45.285-.63 0-.305-.062-.463-.116-.546-.05-.078-.13-.148-.287-.21-.372-.145-.94-.159-1.775-.159s-1.402.014-1.774.16c-.157.06-.238.131-.288.209Z" fill="#000"/></svg>
+
+				</span>
+
+        <span class = "vctheme-icon-button__text">Cane</span>
+
+                
+    </a>
+
+    
+    <a class = "vctheme-icon-button flex items-center rounded-full py-2 px-6 border border-black/[.15] font-light text-xl hover:bg-yellow transition-colors bg-yellow" href = "https://magazine.arcaplanet.it/">
+
+        <span class = "vctheme-icon-button__icon h-8 w-8 fill-slate-300 mr-[14px]">				<svg viewBox="0 0 32 32"><path d="M13.42 15.854a.912.912 0 1 1-1.824 0 .912.912 0 0 1 1.825 0Z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M14.383 19.317a.75.75 0 0 1 .65-.375h1.871a.75.75 0 0 1 .65 1.125l-.635 1.1 1.375.521a.75.75 0 0 1 .452 1.43l-.23-.713.23.714h-.003l-.004.002-.01.003-.026.008a2.832 2.832 0 0 1-.347.072c-.218.03-.52.05-.865.002a2.832 2.832 0 0 1-1.522-.707c-.49.442-1.039.64-1.523.707a3.141 3.141 0 0 1-1.211-.074l-.027-.008-.01-.003-.004-.001h-.002c0-.001-.001-.001.228-.715l-.23.714a.75.75 0 0 1 .453-1.43l1.375-.523-.635-1.099a.75.75 0 0 1 0-.75Zm2.535 1.851-.06.102c.282.312.588.415.838.45a1.64 1.64 0 0 0 .574-.025l.017-.005h.002l.005-.002-.007.002-1.37-.522Zm-3.275.52.005.002.019.005a1.64 1.64 0 0 0 .574.025c.25-.035.556-.138.837-.45l-.059-.102-1.37.522-.006-.002Z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.338 4.25a.75.75 0 0 0-1.165.625v7.29c0 .062.008.121.022.178a10.27 10.27 0 0 0-1.543 4.938l-2.489-.555a.75.75 0 0 0-.326 1.464l2.853.636c.107 1.073.377 2.098.787 3.05l-2.17.439a.75.75 0 0 0 .297 1.47l2.597-.526a10.322 10.322 0 0 0 8.768 4.866c3.703 0 6.95-1.95 8.774-4.877l2.653.537a.75.75 0 1 0 .298-1.47l-2.228-.451c.404-.944.672-1.96.78-3.024l2.917-.65a.75.75 0 0 0-.326-1.464l-2.552.568a10.27 10.27 0 0 0-1.424-4.755c.063-.11.1-.238.1-.373v-7.29a.75.75 0 0 0-1.165-.626l-5.311 3.526a10.351 10.351 0 0 0-2.516-.309c-.817 0-1.61.095-2.372.274L8.338 4.25Zm12.016 15.555a6.063 6.063 0 0 1-5.101-5.987c0-1.906.88-3.605 2.251-4.718a8.829 8.829 0 0 0-10.363 8.512l4.138.923a.75.75 0 0 1-.326 1.464l-3.707-.826c.133.845.385 1.65.739 2.397l3.47-.702a.75.75 0 1 1 .298 1.47l-2.963.6a8.818 8.818 0 0 0 7.179 3.687 8.818 8.818 0 0 0 7.186-3.699l-2.908-.588a.75.75 0 0 1 .298-1.47l3.413.69c.349-.74.598-1.536.73-2.372l-1.05.234a6.018 6.018 0 0 1-2.04.455l-.56.124a.75.75 0 0 1-.684-.194ZM23.46 6.273v4.413a10.353 10.353 0 0 0-3.2-2.288l3.2-2.125ZM11.795 8.345 8.673 6.273v4.211a10.35 10.35 0 0 1 3.122-2.139Zm8.601 7.51a.912.912 0 1 1-1.824 0 .912.912 0 0 1 1.824 0Z" fill="#000"/></svg>
+				</span>
+
+        <span class = "vctheme-icon-button__text">Gatto</span>
+
+        
+                <span class = "ml-[12px]">				<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M3.49228 12.0059C3.21565 12.2825 3.21565 12.731 3.49228 13.0076C3.7689 13.2843 4.21739 13.2842 4.49401 13.0076L8.0001 9.50154L11.5061 13.0075C11.7827 13.2842 12.2312 13.2842 12.5078 13.0075C12.7844 12.7309 12.7844 12.2824 12.5078 12.0058L9.00183 8.49981L12.5079 4.99375C12.7845 4.71713 12.7845 4.26864 12.5079 3.99202C12.2313 3.7154 11.7828 3.7154 11.5062 3.99202L8.0001 7.49807L4.49395 3.99192C4.21732 3.7153 3.76883 3.7153 3.49221 3.99192C3.21559 4.26854 3.21559 4.71703 3.49221 4.99365L6.99836 8.49981L3.49228 12.0059Z" fill="black"/>
+				</svg>
+				</span>
+
+                        
+    </a>
+
+    
+    <a class = "vctheme-icon-button flex items-center rounded-full py-2 px-6 border border-black/[.15] font-light text-xl hover:bg-yellow transition-colors" href = "https://magazine.arcaplanet.it/altri-animali/">
+
+        <span class = "vctheme-icon-button__icon h-8 w-8 fill-slate-300 mr-[14px]">				<svg viewBox="0 0 32 32"><path d="m25.844 3.075.822-.069a.825.825 0 0 0-1.108-.704l.286.773ZM14.923 17.828a.67.67 0 1 1-1.341 0 .67.67 0 0 1 1.341 0ZM18.294 17.828a.67.67 0 1 1-1.341 0 .67.67 0 0 1 1.341 0Z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M13.836 28.071a4.764 4.764 0 0 0 4.54.008 4.813 4.813 0 0 0 6.67-4.44 4.815 4.815 0 0 0-2.674-4.305c.08-.402.119-.814.119-1.234a6.356 6.356 0 0 0-1.463-4.068c2.942-2.094 4.369-4.69 5.048-6.836a13.04 13.04 0 0 0 .574-2.946 10.34 10.34 0 0 0 .022-1.14 4.017 4.017 0 0 0-.004-.07l-.001-.022v-.007l-.001-.003s0-.002-.822.067c-.287-.773-.286-.774-.287-.773h-.003l-.007.003-.022.009a12.218 12.218 0 0 0-.365.149 19.23 19.23 0 0 0-4.012 2.332c-1.971 1.503-4.075 3.806-4.439 6.952a6.51 6.51 0 0 0-2.012.13c-.659-5.97-8.31-8.802-8.31-8.802s-.512 6.211 5.382 10.347A6.362 6.362 0 0 0 9.73 18.1c0 .416.039.823.117 1.222a4.815 4.815 0 0 0-2.7 4.316 4.813 4.813 0 0 0 6.69 4.433Zm1.631-1.137a3.12 3.12 0 0 0 1.264.004 4.84 4.84 0 0 1-.634-.84c-.18.302-.391.582-.63.836Zm.63-5.755c.022-.038.045-.075.069-.112a.825.825 0 1 1 1.394.882 3.163 3.163 0 1 0 5.837 1.689 3.168 3.168 0 0 0-2.214-3.01.825.825 0 0 1-.54-1.035l.008-.022a.823.823 0 0 1 .029-.248c.107-.389.16-.795.16-1.223a4.717 4.717 0 0 0-1.518-3.476.82.82 0 0 1-.247-.213c-.46-.37-.99-.655-1.568-.832h-.024a.82.82 0 0 1-.424-.114 4.725 4.725 0 0 0-5.518 5.858c.03.107.036.215.023.319a.825.825 0 0 1-.553.986 3.168 3.168 0 0 0-2.214 3.01 3.163 3.163 0 1 0 5.837-1.689.825.825 0 1 1 1.395-.882l.068.112Zm3.691-8.295c2.8-1.89 4.105-4.257 4.715-6.186.287-.906.421-1.718.482-2.338L24.9 4.4c-.755.378-1.757.946-2.753 1.706-1.866 1.423-3.585 3.418-3.818 6.009a6.355 6.355 0 0 1 1.459.768Z" fill="#000"/></svg>
+				</span>
+
+        <span class = "vctheme-icon-button__text">Altri animali</span>
+
+                
+    </a>
+
+    
+    </div>
+
+    
+        </div>
+
+    
+	</div>
+	<!-- / HEADER -->
+
+    <div class = "md:container xl:container mx-auto">
+
+        <div class = "pl-[34px] xl:pl-[80px] pr-[34px]">
+
+            <div class = " md:flex md:items-center">
+
+                <div class = "uppercase text-[11px] uppercase text-black">
+
+                    <a class = "hover:text-yellow transition-colors" href = "https://magazine.arcaplanet.it/">home</a> — <span class = "font-medium underline">Razze di Gatti</span>
+
+                </div>
+
+            </div>
+
+            <div class = "mt-[8px]">
+
+                <h1 class = "text-[35px] font-medium mb-[16px] max-w-[685px]"><p>Tutte le razze di gatti: la guida completa alle razze feline</p>
+</h1>
+
+                
+                    <div class = "xl:w-3/4 text-[18px] leading-[27px] text-[#36332B] opacity-80 mt-[45px]">
+
+                        <p><strong>Il mondo dei gatti</strong> è davvero affascinante! Vuoi saperne di più?<br />
+Su ArcaMagazine, trovi un <strong>archivio con tante razze di gatti</strong> che comprende anche le razze feline più particolari o poco conosciute. Sfoglia le schede a tua disposizione: sono suddivise in base alla <strong>taglia del pet</strong> (piccola, media, grande) e alla <strong>lunghezza del pelo</strong> dell&#8217;animale (corto, medio, lungo e senza pelo). Classificate in <strong>ordine alfabetico</strong>, le schede dell&#8217;archivio Arcaplanet contengono informazioni relative a <strong>storia, carattere, cura e alimentazione ideale di ogni razza felina pura</strong>.</p>
+
+                    </div>
+
+                    
+            </div>
+
+        </div>
+
+        
+            <div class = "mt-[85px]">
+
+                
+            </div>
+
+            
+    <div class = "md:flex">
+
+        <div class = "md:flex md:max-w-[1185px] w-full">
+
+            <div class = "md:flex-[48%] md:max-w-[48%] md:mt-[85px]">
+
+                <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px] mb-[30px] md:mb-0">
+
+                    <img width="800" height="800" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20800'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" fetchpriority="high" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/tran-mau-tri-tam-X7hoV79E3wg-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/tran-mau-tri-tam-X7hoV79E3wg-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/tran-mau-tri-tam-X7hoV79E3wg-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/tran-mau-tri-tam-X7hoV79E3wg-unsplash-768x768.jpg 768w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/tran-mau-tri-tam-X7hoV79E3wg-unsplash.jpg" /><noscript><img width="800" height="800" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/tran-mau-tri-tam-X7hoV79E3wg-unsplash.jpg" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" fetchpriority="high" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/tran-mau-tri-tam-X7hoV79E3wg-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/tran-mau-tri-tam-X7hoV79E3wg-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/tran-mau-tri-tam-X7hoV79E3wg-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/tran-mau-tri-tam-X7hoV79E3wg-unsplash-768x768.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>
+                </div>
+
+            </div>
+
+            <div class = "md:flex-[1] md:px-[66px] md:order-1 md:pr-0">
+
+                <div class = "hidden md:flex xl:items-end">
+
+                    
+                        <div class = "md:flex-[50%] md:max-w-[50%] xl:max-w-[282px]">
+
+                            <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px]">
+
+                                <img width="800" height="800" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20800'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/lili-foE0924-1fc-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/lili-foE0924-1fc-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/lili-foE0924-1fc-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/lili-foE0924-1fc-unsplash-768x768.jpg 768w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/lili-foE0924-1fc-unsplash.jpg" /><noscript><img width="800" height="800" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/lili-foE0924-1fc-unsplash.jpg" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/lili-foE0924-1fc-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/lili-foE0924-1fc-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/lili-foE0924-1fc-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/lili-foE0924-1fc-unsplash-768x768.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>
+                            </div>
+
+                        </div>
+
+                        
+                        <div class = "md:flex-[195px] xl:pl-[66px] hidden xl:block">
+
+                            <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px] mt-[85px]">
+
+                                <img width="800" height="800" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20800'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-xaskmnxrqhM-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-xaskmnxrqhM-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-xaskmnxrqhM-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-xaskmnxrqhM-unsplash-768x768.jpg 768w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-xaskmnxrqhM-unsplash.jpg" /><noscript><img width="800" height="800" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-xaskmnxrqhM-unsplash.jpg" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-xaskmnxrqhM-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-xaskmnxrqhM-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-xaskmnxrqhM-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-xaskmnxrqhM-unsplash-768x768.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>
+                            </div>
+
+                        </div>
+
+                        
+                </div>
+
+                <div class = "xl:flex">
+
+                    <div class = "max-w-[456px] md:mt-[63px]">
+
+                        <h3 class = "text-[23px] mb-0 font-normal"><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-gatti/taglia-piccola/">Taglia piccola</a></h3>
+
+                        
+                            <div class = "mt-[8px] text-greydark opacity-80 text-[15px] leading-[22px]">
+
+                                <p>In genere, le <strong>razze di gatti di taglia piccola</strong> sono giocherellone. Anche da adulti, i mici di questa categoria, che ben si adattano a vivere nelle abitazioni di dimensioni ridotte, conservano le dimensioni di un gattino e amano fare le fusa.<br />
+Su ArcaMagazine, scopri <strong>caratteristiche, cura e alimentazione</strong> delle razze di gatti di taglia piccola.</p>
+
+                            </div>
+
+                            
+                        <div class = "mt-[24px]">
+                            <a class="post-drawer uppercase text-xs font-medium inline-block border-b border-black/50 pb-1 transition-colors hover:text-yellow hover:border-yellow" href="https://magazine.arcaplanet.it/razze-gatti/taglia-piccola/">VEDI TUTTE</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class = "mt-[60px] xl:mt-[116px]"></div>
+    <div class = "md:flex md:justify-end">
+
+        <div class = "md:flex md:max-w-[1185px] w-full">
+
+            <div class = "md:flex-[48%] md:max-w-[48%] md:mt-[85px] md:order-2">
+
+                <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px] mb-[30px] md:mb-0">
+
+                    <img width="1440" height="470" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%20470'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="Gatto British Shorthair guida completa su carattere, cura e alimentazione della razza" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-razza-gatto-british-shorthair.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-razza-gatto-british-shorthair-300x98.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-razza-gatto-british-shorthair-1024x334.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-razza-gatto-british-shorthair-768x251.png 768w" data-lazy-sizes="(max-width: 1440px) 100vw, 1440px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-razza-gatto-british-shorthair.png" /><noscript><img width="1440" height="470" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-razza-gatto-british-shorthair.png" class="absolute left-0 top-0 block w-full h-full object-cover" alt="Gatto British Shorthair guida completa su carattere, cura e alimentazione della razza" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-razza-gatto-british-shorthair.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-razza-gatto-british-shorthair-300x98.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-razza-gatto-british-shorthair-1024x334.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-razza-gatto-british-shorthair-768x251.png 768w" sizes="(max-width: 1440px) 100vw, 1440px" /></noscript>
+                </div>
+
+            </div>
+
+            <div class = "md:flex-[1] md:px-[66px] md:order-1 md:pl-0">
+
+                <div class = "hidden md:flex xl:items-end">
+
+                    
+                        <div class = "md:flex-[50%] md:max-w-[50%] xl:max-w-[282px]">
+
+                            <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px]">
+
+                                <img width="1440" height="470" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%20470'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="Gatto Certosino guida completa su carattere, cura e alimentazione della razza" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-certosino.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-certosino-300x98.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-certosino-1024x334.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-certosino-768x251.png 768w" data-lazy-sizes="(max-width: 1440px) 100vw, 1440px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-certosino.png" /><noscript><img width="1440" height="470" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-certosino.png" class="absolute left-0 top-0 block w-full h-full object-cover" alt="Gatto Certosino guida completa su carattere, cura e alimentazione della razza" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-certosino.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-certosino-300x98.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-certosino-1024x334.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-certosino-768x251.png 768w" sizes="(max-width: 1440px) 100vw, 1440px" /></noscript>
+                            </div>
+
+                        </div>
+
+                        
+                        <div class = "md:flex-[195px] xl:pl-[66px] hidden xl:block">
+
+                            <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px] mt-[85px]">
+
+                                <img width="1440" height="450" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%20450'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="Gatto Exotic Shorthair guida completa su carattere, cura e alimentazione della razza" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair-300x94.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair-1024x320.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair-768x240.png 768w" data-lazy-sizes="(max-width: 1440px) 100vw, 1440px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair.png" /><noscript><img width="1440" height="450" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair.png" class="absolute left-0 top-0 block w-full h-full object-cover" alt="Gatto Exotic Shorthair guida completa su carattere, cura e alimentazione della razza" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair-300x94.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair-1024x320.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair-768x240.png 768w" sizes="(max-width: 1440px) 100vw, 1440px" /></noscript>
+                            </div>
+
+                        </div>
+
+                        
+                </div>
+
+                <div class = "xl:flex justify-end">
+
+                    <div class = "max-w-[456px] md:mt-[63px]">
+
+                        <h3 class = "text-[23px] mb-0 font-normal"><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-gatti/taglia-media/">Taglia media</a></h3>
+
+                        
+                            <div class = "mt-[8px] text-greydark opacity-80 text-[15px] leading-[22px]">
+
+                                <p>Tra i <strong>gatti di taglia media</strong>, adorabili e irresistibili, rientra la maggior parte delle razze di felini con un’altezza media compresa tra 23 e 25 cm. Il peso di un gatto di taglia media, invece, varia in base alla razza pura di appartenenza.<br />
+Su ArcaMagazine, scopri <strong>caratteristiche, cura e alimentazione</strong> delle razze di gatti di taglia media.</p>
+
+                            </div>
+
+                            
+                        <div class = "mt-[24px]">
+                            <a class="post-drawer uppercase text-xs font-medium inline-block border-b border-black/50 pb-1 transition-colors hover:text-yellow hover:border-yellow" href="https://magazine.arcaplanet.it/razze-gatti/taglia-media/">VEDI TUTTE</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class = "mt-[60px] xl:mt-[116px]"></div>
+    <div class = "md:flex">
+
+        <div class = "md:flex md:max-w-[1185px] w-full">
+
+            <div class = "md:flex-[48%] md:max-w-[48%] md:mt-[85px]">
+
+                <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px] mb-[30px] md:mb-0">
+
+                    <img width="800" height="800" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20800'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/daniel-zopf-iQsbPwP-pYw-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/daniel-zopf-iQsbPwP-pYw-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/daniel-zopf-iQsbPwP-pYw-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/daniel-zopf-iQsbPwP-pYw-unsplash-768x768.jpg 768w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/daniel-zopf-iQsbPwP-pYw-unsplash.jpg" /><noscript><img width="800" height="800" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/daniel-zopf-iQsbPwP-pYw-unsplash.jpg" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/daniel-zopf-iQsbPwP-pYw-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/daniel-zopf-iQsbPwP-pYw-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/daniel-zopf-iQsbPwP-pYw-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/daniel-zopf-iQsbPwP-pYw-unsplash-768x768.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>
+                </div>
+
+            </div>
+
+            <div class = "md:flex-[1] md:px-[66px] md:order-1 md:pr-0">
+
+                <div class = "hidden md:flex xl:items-end">
+
+                    
+                        <div class = "md:flex-[50%] md:max-w-[50%] xl:max-w-[282px]">
+
+                            <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px]">
+
+                                <img width="800" height="800" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20800'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/alessandro-micelli-ferPB57CmBE-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/alessandro-micelli-ferPB57CmBE-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/alessandro-micelli-ferPB57CmBE-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/alessandro-micelli-ferPB57CmBE-unsplash-768x768.jpg 768w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/alessandro-micelli-ferPB57CmBE-unsplash.jpg" /><noscript><img width="800" height="800" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/alessandro-micelli-ferPB57CmBE-unsplash.jpg" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/alessandro-micelli-ferPB57CmBE-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/alessandro-micelli-ferPB57CmBE-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/alessandro-micelli-ferPB57CmBE-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/alessandro-micelli-ferPB57CmBE-unsplash-768x768.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>
+                            </div>
+
+                        </div>
+
+                        
+                        <div class = "md:flex-[195px] xl:pl-[66px] hidden xl:block">
+
+                            <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px] mt-[85px]">
+
+                                <img width="800" height="800" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20800'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/esteban-chinchilla-DwkgUqRcHrA-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/esteban-chinchilla-DwkgUqRcHrA-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/esteban-chinchilla-DwkgUqRcHrA-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/esteban-chinchilla-DwkgUqRcHrA-unsplash-768x768.jpg 768w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/esteban-chinchilla-DwkgUqRcHrA-unsplash.jpg" /><noscript><img width="800" height="800" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/esteban-chinchilla-DwkgUqRcHrA-unsplash.jpg" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/esteban-chinchilla-DwkgUqRcHrA-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/esteban-chinchilla-DwkgUqRcHrA-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/esteban-chinchilla-DwkgUqRcHrA-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/esteban-chinchilla-DwkgUqRcHrA-unsplash-768x768.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>
+                            </div>
+
+                        </div>
+
+                        
+                </div>
+
+                <div class = "xl:flex">
+
+                    <div class = "max-w-[456px] md:mt-[63px]">
+
+                        <h3 class = "text-[23px] mb-0 font-normal"><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-gatti/taglia-grande/">Taglia grande</a></h3>
+
+                        
+                            <div class = "mt-[8px] text-greydark opacity-80 text-[15px] leading-[22px]">
+
+                                <p>I <strong>gatti di taglia grande</strong> sono gatti “giganti” che raggiungono (e, talvolta, superano) i 10 kg di peso e arrivano a misurare un metro di lunghezza, coda compresa. Nonostante le dimensioni, varie razze di questi pet hanno anche un <strong>carattere docile e affettuoso</strong>.<br />
+Su ArcaMagazine, scopri <strong>caratteristiche, cura e alimentazione</strong> delle razze di gatti di taglia grande.</p>
+
+                            </div>
+
+                            
+                        <div class = "mt-[24px]">
+                            <a class="post-drawer uppercase text-xs font-medium inline-block border-b border-black/50 pb-1 transition-colors hover:text-yellow hover:border-yellow" href="https://magazine.arcaplanet.it/razze-gatti/taglia-grande/">VEDI TUTTE</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class = "mt-[60px] xl:mt-[116px]"></div>
+    <div class = "md:flex md:justify-end">
+
+        <div class = "md:flex md:max-w-[1185px] w-full">
+
+            <div class = "md:flex-[48%] md:max-w-[48%] md:mt-[85px] md:order-2">
+
+                <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px] mb-[30px] md:mb-0">
+
+                    <img width="800" height="800" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20800'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/diana-parkhouse-RI8r4nQGiCg-unsplash2.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/diana-parkhouse-RI8r4nQGiCg-unsplash2-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/diana-parkhouse-RI8r4nQGiCg-unsplash2-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/diana-parkhouse-RI8r4nQGiCg-unsplash2-768x768.jpg 768w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/diana-parkhouse-RI8r4nQGiCg-unsplash2.jpg" /><noscript><img width="800" height="800" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/diana-parkhouse-RI8r4nQGiCg-unsplash2.jpg" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/diana-parkhouse-RI8r4nQGiCg-unsplash2.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/diana-parkhouse-RI8r4nQGiCg-unsplash2-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/diana-parkhouse-RI8r4nQGiCg-unsplash2-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/diana-parkhouse-RI8r4nQGiCg-unsplash2-768x768.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>
+                </div>
+
+            </div>
+
+            <div class = "md:flex-[1] md:px-[66px] md:order-1 md:pl-0">
+
+                <div class = "hidden md:flex xl:items-end">
+
+                    
+                        <div class = "md:flex-[50%] md:max-w-[50%] xl:max-w-[282px]">
+
+                            <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px]">
+
+                                <img width="800" height="800" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20800'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/leonsa-mmAGlgDAXuE-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/leonsa-mmAGlgDAXuE-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/leonsa-mmAGlgDAXuE-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/leonsa-mmAGlgDAXuE-unsplash-768x768.jpg 768w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/leonsa-mmAGlgDAXuE-unsplash.jpg" /><noscript><img width="800" height="800" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/leonsa-mmAGlgDAXuE-unsplash.jpg" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/leonsa-mmAGlgDAXuE-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/leonsa-mmAGlgDAXuE-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/leonsa-mmAGlgDAXuE-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/leonsa-mmAGlgDAXuE-unsplash-768x768.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>
+                            </div>
+
+                        </div>
+
+                        
+                        <div class = "md:flex-[195px] xl:pl-[66px] hidden xl:block">
+
+                            <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px] mt-[85px]">
+
+                                <img width="1440" height="470" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%20470'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="Gatto Siamese guida completa su carattere, cura e alimentazione della razza" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-siamese.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-siamese-300x98.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-siamese-1024x334.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-siamese-768x251.png 768w" data-lazy-sizes="(max-width: 1440px) 100vw, 1440px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-siamese.png" /><noscript><img width="1440" height="470" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-siamese.png" class="absolute left-0 top-0 block w-full h-full object-cover" alt="Gatto Siamese guida completa su carattere, cura e alimentazione della razza" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-siamese.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-siamese-300x98.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-siamese-1024x334.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-siamese-768x251.png 768w" sizes="(max-width: 1440px) 100vw, 1440px" /></noscript>
+                            </div>
+
+                        </div>
+
+                        
+                </div>
+
+                <div class = "xl:flex justify-end">
+
+                    <div class = "max-w-[456px] md:mt-[63px]">
+
+                        <h3 class = "text-[23px] mb-0 font-normal"><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-gatti/pelo-corto/">A pelo corto</a></h3>
+
+                        
+                            <div class = "mt-[8px] text-greydark opacity-80 text-[15px] leading-[22px]">
+
+                                <p>Le <strong>razze di gatti a pelo corto</strong> richiedono una cura del manto minore, rispetto a quelle con pelo più lungo.<br />
+Su ArcaMagazine, scopri <strong>caratteristiche, cura e alimentazione</strong> delle razze di gatti a pelo corto.</p>
+
+                            </div>
+
+                            
+                        <div class = "mt-[24px]">
+                            <a class="post-drawer uppercase text-xs font-medium inline-block border-b border-black/50 pb-1 transition-colors hover:text-yellow hover:border-yellow" href="https://magazine.arcaplanet.it/razze-gatti/pelo-corto/">VEDI TUTTE</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class = "mt-[60px] xl:mt-[116px]"></div>
+    <div class = "md:flex">
+
+        <div class = "md:flex md:max-w-[1185px] w-full">
+
+            <div class = "md:flex-[48%] md:max-w-[48%] md:mt-[85px]">
+
+                <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px] mb-[30px] md:mb-0">
+
+                    <img width="1440" height="450" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%20450'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="Gatto Exotic Shorthair guida completa su carattere, cura e alimentazione della razza" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair-300x94.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair-1024x320.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair-768x240.png 768w" data-lazy-sizes="(max-width: 1440px) 100vw, 1440px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair.png" /><noscript><img width="1440" height="450" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair.png" class="absolute left-0 top-0 block w-full h-full object-cover" alt="Gatto Exotic Shorthair guida completa su carattere, cura e alimentazione della razza" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair-300x94.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair-1024x320.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-exotic-shorthair-768x240.png 768w" sizes="(max-width: 1440px) 100vw, 1440px" /></noscript>
+                </div>
+
+            </div>
+
+            <div class = "md:flex-[1] md:px-[66px] md:order-1 md:pr-0">
+
+                <div class = "hidden md:flex xl:items-end">
+
+                    
+                        <div class = "md:flex-[50%] md:max-w-[50%] xl:max-w-[282px]">
+
+                            <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px]">
+
+                                <img width="1436" height="548" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201436%20548'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="il gatto exhotic shortair" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/exhotic-shortair-1.jpg 1436w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/exhotic-shortair-1-300x114.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/exhotic-shortair-1-1024x391.jpg 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/exhotic-shortair-1-768x293.jpg 768w" data-lazy-sizes="(max-width: 1436px) 100vw, 1436px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/exhotic-shortair-1.jpg" /><noscript><img width="1436" height="548" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/exhotic-shortair-1.jpg" class="absolute left-0 top-0 block w-full h-full object-cover" alt="il gatto exhotic shortair" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/exhotic-shortair-1.jpg 1436w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/exhotic-shortair-1-300x114.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/exhotic-shortair-1-1024x391.jpg 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/exhotic-shortair-1-768x293.jpg 768w" sizes="(max-width: 1436px) 100vw, 1436px" /></noscript>
+                            </div>
+
+                        </div>
+
+                        
+                </div>
+
+                <div class = "xl:flex">
+
+                    <div class = "max-w-[456px] md:mt-[63px]">
+
+                        <h3 class = "text-[23px] mb-0 font-normal"><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-gatti/pelo-medio/">A pelo medio</a></h3>
+
+                        
+                            <div class = "mt-[8px] text-greydark opacity-80 text-[15px] leading-[22px]">
+
+                                <p>Il manto delle <strong>razze di gatti a pelo medio</strong> fa di questi mici una specie di rarità, nel panorama dei felini domestici.<br />
+Su ArcaMagazine, scopri <strong>caratteristiche, cura e alimentazione</strong> delle razze di gatti a pelo medio.</p>
+
+                            </div>
+
+                            
+                        <div class = "mt-[24px]">
+                            <a class="post-drawer uppercase text-xs font-medium inline-block border-b border-black/50 pb-1 transition-colors hover:text-yellow hover:border-yellow" href="https://magazine.arcaplanet.it/razze-gatti/pelo-medio/">VEDI TUTTE</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class = "mt-[60px] xl:mt-[116px]"></div>
+    <div class = "md:flex md:justify-end">
+
+        <div class = "md:flex md:max-w-[1185px] w-full">
+
+            <div class = "md:flex-[48%] md:max-w-[48%] md:mt-[85px] md:order-2">
+
+                <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px] mb-[30px] md:mb-0">
+
+                    <img width="1440" height="470" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%20470'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="Gatto Persiano guida completa su carattere, cura e alimentazione della razza" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-persiano-arcaplanet.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-persiano-arcaplanet-300x98.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-persiano-arcaplanet-1024x334.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-persiano-arcaplanet-768x251.png 768w" data-lazy-sizes="(max-width: 1440px) 100vw, 1440px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-persiano-arcaplanet.png" /><noscript><img width="1440" height="470" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-persiano-arcaplanet.png" class="absolute left-0 top-0 block w-full h-full object-cover" alt="Gatto Persiano guida completa su carattere, cura e alimentazione della razza" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-persiano-arcaplanet.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-persiano-arcaplanet-300x98.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-persiano-arcaplanet-1024x334.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/blog-consigli-gatto-persiano-arcaplanet-768x251.png 768w" sizes="(max-width: 1440px) 100vw, 1440px" /></noscript>
+                </div>
+
+            </div>
+
+            <div class = "md:flex-[1] md:px-[66px] md:order-1 md:pl-0">
+
+                <div class = "hidden md:flex xl:items-end">
+
+                    
+                        <div class = "md:flex-[50%] md:max-w-[50%] xl:max-w-[282px]">
+
+                            <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px]">
+
+                                <img width="1440" height="470" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%20470'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="Gatto Maine Coon guida completa su carattere, cura e alimentazione della razza" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto-maine-coon-consigli-1.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto-maine-coon-consigli-1-300x98.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto-maine-coon-consigli-1-1024x334.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto-maine-coon-consigli-1-768x251.png 768w" data-lazy-sizes="(max-width: 1440px) 100vw, 1440px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto-maine-coon-consigli-1.png" /><noscript><img width="1440" height="470" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto-maine-coon-consigli-1.png" class="absolute left-0 top-0 block w-full h-full object-cover" alt="Gatto Maine Coon guida completa su carattere, cura e alimentazione della razza" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto-maine-coon-consigli-1.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto-maine-coon-consigli-1-300x98.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto-maine-coon-consigli-1-1024x334.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto-maine-coon-consigli-1-768x251.png 768w" sizes="(max-width: 1440px) 100vw, 1440px" /></noscript>
+                            </div>
+
+                        </div>
+
+                        
+                        <div class = "md:flex-[195px] xl:pl-[66px] hidden xl:block">
+
+                            <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px] mt-[85px]">
+
+                                <img width="1440" height="470" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%20470'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="gatto d&#039;angora tuirco" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto_angora.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto_angora-300x98.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto_angora-1024x334.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto_angora-768x251.png 768w" data-lazy-sizes="(max-width: 1440px) 100vw, 1440px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto_angora.png" /><noscript><img width="1440" height="470" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto_angora.png" class="absolute left-0 top-0 block w-full h-full object-cover" alt="gatto d&#039;angora tuirco" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto_angora.png 1440w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto_angora-300x98.png 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto_angora-1024x334.png 1024w, https://magazine.arcaplanet.it/wp-content/uploads/2022/06/gatto_angora-768x251.png 768w" sizes="(max-width: 1440px) 100vw, 1440px" /></noscript>
+                            </div>
+
+                        </div>
+
+                        
+                </div>
+
+                <div class = "xl:flex justify-end">
+
+                    <div class = "max-w-[456px] md:mt-[63px]">
+
+                        <h3 class = "text-[23px] mb-0 font-normal"><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-gatti/pelo-lungo/">A pelo lungo</a></h3>
+
+                        
+                            <div class = "mt-[8px] text-greydark opacity-80 text-[15px] leading-[22px]">
+
+                                <p>Il manto delle razze di gatti a pelo lungo è così morbido, setoso e folto, da rendere praticamente irresistibili i mici che appartengono a questa categoria.<br />
+Su ArcaMagazine, scopri <strong>caratteristiche, cura e alimentazione</strong> delle razze di gatti a pelo lungo.</p>
+
+                            </div>
+
+                            
+                        <div class = "mt-[24px]">
+                            <a class="post-drawer uppercase text-xs font-medium inline-block border-b border-black/50 pb-1 transition-colors hover:text-yellow hover:border-yellow" href="https://magazine.arcaplanet.it/razze-gatti/pelo-lungo/">VEDI TUTTE</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class = "mt-[60px] xl:mt-[116px]"></div>
+    <div class = "md:flex">
+
+        <div class = "md:flex md:max-w-[1185px] w-full">
+
+            <div class = "md:flex-[48%] md:max-w-[48%] md:mt-[85px]">
+
+                <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px] mb-[30px] md:mb-0">
+
+                    <img width="800" height="800" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20800'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-QRwlPkgAKFA-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-QRwlPkgAKFA-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-QRwlPkgAKFA-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-QRwlPkgAKFA-unsplash-768x768.jpg 768w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-QRwlPkgAKFA-unsplash.jpg" /><noscript><img width="800" height="800" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-QRwlPkgAKFA-unsplash.jpg" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-QRwlPkgAKFA-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-QRwlPkgAKFA-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-QRwlPkgAKFA-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/simona-melegova-QRwlPkgAKFA-unsplash-768x768.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>
+                </div>
+
+            </div>
+
+            <div class = "md:flex-[1] md:px-[66px] md:order-1 md:pr-0">
+
+                <div class = "hidden md:flex xl:items-end">
+
+                    
+                        <div class = "md:flex-[50%] md:max-w-[50%] xl:max-w-[282px]">
+
+                            <div class = "relative pt-[98.95%] overflow-hidden rounded-[5px]">
+
+                                <img width="800" height="800" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20800'%3E%3C/svg%3E" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/hanna-listek-idb3i1A2OkY-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/hanna-listek-idb3i1A2OkY-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/hanna-listek-idb3i1A2OkY-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/hanna-listek-idb3i1A2OkY-unsplash-768x768.jpg 768w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/hanna-listek-idb3i1A2OkY-unsplash.jpg" /><noscript><img width="800" height="800" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/hanna-listek-idb3i1A2OkY-unsplash.jpg" class="absolute left-0 top-0 block w-full h-full object-cover" alt="" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/hanna-listek-idb3i1A2OkY-unsplash.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/hanna-listek-idb3i1A2OkY-unsplash-300x300.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/hanna-listek-idb3i1A2OkY-unsplash-150x150.jpg 150w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/hanna-listek-idb3i1A2OkY-unsplash-768x768.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>
+                            </div>
+
+                        </div>
+
+                        
+                </div>
+
+                <div class = "xl:flex">
+
+                    <div class = "max-w-[456px] md:mt-[63px]">
+
+                        <h3 class = "text-[23px] mb-0 font-normal"><a class = "transition-colors hover:text-yellow" href = "https://magazine.arcaplanet.it/razze-gatti/senza-pelo/">Senza pelo</a></h3>
+
+                        
+                            <div class = "mt-[8px] text-greydark opacity-80 text-[15px] leading-[22px]">
+
+                                <p>Le <strong>razze di gatti senza pelo</strong>, dall&#8217;aspetto decisamente singolare, stanno diventando sempre più popolari.<br />
+Su ArcaMagazine, scopri <strong>caratteristiche, cura e alimentazione</strong> delle razze di gatti senza pelo.</p>
+
+                            </div>
+
+                            
+                        <div class = "mt-[24px]">
+                            <a class="post-drawer uppercase text-xs font-medium inline-block border-b border-black/50 pb-1 transition-colors hover:text-yellow hover:border-yellow" href="https://magazine.arcaplanet.it/razze-gatti/senza-pelo/">VEDI TUTTE</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    
+    </div>
+
+    <div class = "mt-[80px]"></div>
+
+    
+    <div class = "-mx-4 xl:container xl:mx-auto bg-black text-white xl:rounded-[8px] overflow-hidden">
+
+        <div class = "md:flex md:items-center">
+
+            <div class = "md:basis-3/5 px-[20px] xl:px-[115px] pt-[40px] pb-[32px] xl:py-[40px] text-center md:text-left">
+
+                <div class = "font-normal text-[20px] xl:text-[30px] mb-[8px] vctheme-font-inerith"><p><span class="ui-provider hc b c d e f g h i j k l m n o p q r s t u v w x y z ab ac ae af ag ah ai aj ak" dir="ltr">Unisciti alla community</span></p>
+</div>
+
+                <div class = "font-light xl:text[18px] xl:leading-[24px] vctheme-font-inerith vctheme-font-underline"><p>Ti invieremo in anteprima tanti <u>consigli</u>,</p>
+<p><u>offerte</u> e <u>novità pensate per il tuo Pet.</u></p>
+<p>&nbsp;</p>
+</div>
+
+                <div class = "mt-[32px]">
+
+                    <a href = "https://bit.ly/3oCmIUa" target="_blank" class="bg-yellow rounded-[8px] h-[40px] md:w-full md:max-w-[320px] inline-flex flex-col justify-center items-center py-3 px-5 uppercase text-xxs font-medium z-10 transition-colors text-black text-center">
+
+                        ISCRIVITI AD ARCACARD
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class = "md:basis-2/5">
+
+                <div class = "flex justify-center md:justify-end px-[30px] md:px-0">
+
+                    <img width="800" height="654" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20654'%3E%3C/svg%3E" class="" alt="" decoding="async" data-lazy-srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/newsletter.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/newsletter-300x245.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/newsletter-768x628.jpg 768w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/newsletter.jpg" /><noscript><img width="800" height="654" src="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/newsletter.jpg" class="" alt="" decoding="async" srcset="https://magazine.arcaplanet.it/wp-content/uploads/2022/09/newsletter.jpg 800w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/newsletter-300x245.jpg 300w, https://magazine.arcaplanet.it/wp-content/uploads/2022/09/newsletter-768x628.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></noscript>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    
+    <div class = "mt-[80px]"></div>
+
+    
+	
+
+    <footer id = "main_footer" class = "bg-black text-white -mx-4">
+
+        <div class = "px-4 py-[32px] xl:pb-[48px]">
+
+            <div class = "text-center">
+
+                <a class = "inline-block" href="https://magazine.arcaplanet.it/" rel="home"><img width="205" height="48" width = "205" height = "48" alt = "logo" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20205%2048'%3E%3C/svg%3E" alt="" data-lazy-src="https://magazine.arcaplanet.it/wp-content/themes/arcablog/img/logo-arcaplanet.svg"><noscript><img width="205" height="48" width = "205" height = "48" alt = "logo" src="https://magazine.arcaplanet.it/wp-content/themes/arcablog/img/logo-arcaplanet.svg" alt=""></noscript></a>
+
+                <div class = "text-[24px] leading-[100%] font-medium mt-[16px]">Numeri 1 in Italia con oltre 520 negozi!</div>
+
+            </div>
+
+            <div class = "md:container md:mx-auto xl:container ">
+
+                <div class = "md:flex md:flex-wrap">
+
+                    
+    <nav class = "md:basis-1/4 xl:basis-1/5 mt-[45px]">
+
+        <h3 class = "font-medium text-[14px] mb-0">Argomenti del Magazine</h3>
+
+        <ul id="menu-argomenti-del-magazine" class="[&amp;&gt;li]:mt-[16px] text-[12px]"><li id="menu-item-2941" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2941"><a href="https://magazine.arcaplanet.it/cane/">Articoli sul Cane</a></li>
+<li id="menu-item-2942" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2942"><a href="https://magazine.arcaplanet.it/gatto/">Articoli sul Gatto</a></li>
+<li id="menu-item-2943" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2943"><a href="https://magazine.arcaplanet.it/altri-animali/">Articoli su Altri Animali</a></li>
+<li id="menu-item-3201" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3201"><a href="https://magazine.arcaplanet.it/eventi/">Eventi</a></li>
+<li id="menu-item-3202" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3202"><a href="https://magazine.arcaplanet.it/news/">News</a></li>
+</ul>
+    </nav>
+
+    
+    <nav class = "md:basis-1/4 xl:basis-1/5 mt-[45px]">
+
+        <h3 class = "font-medium text-[14px] mb-0">Razze di Cani e Gatti</h3>
+
+        <ul id="menu-razze-di-cani-e-gatti" class="[&amp;&gt;li]:mt-[16px] text-[12px]"><li id="menu-item-2944" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2944"><a href="https://magazine.arcaplanet.it/razze-cani/">Tutte le razze di Cani</a></li>
+<li id="menu-item-2945" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-2945"><a href="https://magazine.arcaplanet.it/razze-gatti/" aria-current="page">Tutte la razze di Gatti</a></li>
+</ul>
+    </nav>
+
+    
+    <nav class = "md:basis-1/4 xl:basis-1/5 mt-[45px]">
+
+        <h3 class = "font-medium text-[14px] mb-0">Cane</h3>
+
+        <ul id="menu-cane" class="[&amp;&gt;li]:mt-[16px] text-[12px]"><li id="menu-item-2946" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2946"><a href="https://magazine.arcaplanet.it/cane/alimentazione-c/">Alimentazione</a></li>
+<li id="menu-item-2947" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2947"><a href="https://magazine.arcaplanet.it/cane/benessere-e-salute-c/">Benessere e salute</a></li>
+<li id="menu-item-2948" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2948"><a href="https://magazine.arcaplanet.it/cane/comportamento-e-gioco-c/">Comportamento e gioco</a></li>
+<li id="menu-item-2949" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2949"><a href="https://magazine.arcaplanet.it/cane/puppy/">Puppy</a></li>
+<li id="menu-item-2950" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2950"><a href="https://magazine.arcaplanet.it/cane/vet-stories/">Vet stories</a></li>
+</ul>
+    </nav>
+
+    
+    <nav class = "md:basis-1/4 xl:basis-1/5 mt-[45px]">
+
+        <h3 class = "font-medium text-[14px] mb-0">Gatto</h3>
+
+        <ul id="menu-gatto" class="[&amp;&gt;li]:mt-[16px] text-[12px]"><li id="menu-item-2951" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2951"><a href="https://magazine.arcaplanet.it/gatto/alimentazione-g/">Alimentazione</a></li>
+<li id="menu-item-2952" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2952"><a href="https://magazine.arcaplanet.it/gatto/benessere-e-salute-g/">Benessere e salute</a></li>
+<li id="menu-item-2953" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2953"><a href="https://magazine.arcaplanet.it/gatto/comportamento-e-gioco-g/">Comportamento e gioco</a></li>
+<li id="menu-item-2954" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2954"><a href="https://magazine.arcaplanet.it/gatto/kitty/">Kitty</a></li>
+<li id="menu-item-2955" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2955"><a href="https://magazine.arcaplanet.it/gatto/vet-stories-consigli/">Vet stories</a></li>
+</ul>
+    </nav>
+
+    
+                        <nav class = "md:basis-full xl:basis-1/5 mt-[45px]">
+                            <h3 class = "font-medium text-[14px] mb-0 hidden md:block">Seguici su:</h3>
+
+                            <ul class = "flex -mx-[10px] mt-[18px] items-center text-[20px] justify-center md:justify-start">
+                                <li class = "px-[10px]"><a target = "_blank" rel="nofollow" href = "https://www.facebook.com/Arcaplanet/"><i class="fa-brands fa-facebook-square"></i></a></li><li class = "px-[10px]"><a target = "_blank" rel="nofollow" href = "https://www.instagram.com/arcaplanet/"><i class="fa-brands fa-instagram"></i></a></li><li class = "px-[10px]"><a target = "_blank" rel="nofollow" href = "https://www.youtube.com/channel/UCFAm_iOk1Jvq8IMAqZBKdgQ/"><i class="fa-brands fa-youtube"></i></a></li><li class = "px-[10px]"><a target = "_blank" rel="nofollow" href = "https://www.tiktok.com/@arcaplanet/"><i class="fa-brands fa-tiktok"></i></a></li><li class = "px-[10px]"><a target = "_blank" rel="nofollow" href = "https://twitter.com/arcaplanet/"><i class="fa-brands fa-twitter"></i></a></li><li class = "px-[10px]"><a target = "_blank" rel="nofollow" href = "https://www.linkedin.com/company/agrifarma-s-p-a-/"><i class="fa-brands fa-linkedin"></i></a></li>                            </ul>
+                        </nav>
+
+                    
+                </div>
+
+            </div>
+
+            <div class = "xl:hidden xl:block text-[10px] heading-[16px] text-center mt-[34px] max-w-[310px] mx-auto">Agrifarma S.p.a. a socio unico Sede legale: Via Roncaglia, 12, 20146 - Milano (MI) Cap. Soc. € 1.121.363,00 I.V. Reg. Impr. di Milano Monza Brianza e Lodi - P.IVA 01067670990</div>
+
+        </div>
+
+        <div class = "bg-greydark px-4 text-white py-[20px]">
+
+            <div class = "xl:container xl:mx-auto">
+
+                <div class = "flex items-center">
+
+                    <div class = "hidden xl:block text-[10px] heading-[10px] basis-full">Agrifarma S.p.a. a socio unico Sede legale: Via Roncaglia, 12, 20146 - Milano (MI) Cap. Soc. € 1.121.363,00 I.V. Reg. Impr. di Milano Monza Brianza e Lodi - P.IVA 01067670990</div>
+
+                    <div class = "basis-full xl:basis-auto">
+
+                        <div class = "flex justify-center items-center w-full xl:justify-end">
+
+                            <span class = "pr-[28px]">
+				<svg width="67" height="24" viewBox="0 0 67 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M48.5107 9.17197H46.2061V17.0303C46.206 17.1019 46.1773 17.1705 46.1264 17.2212C46.0756 17.2718 46.0066 17.3003 45.9346 17.3004H44.1573C44.0853 17.3003 44.0164 17.2718 43.9655 17.2212C43.9146 17.1705 43.8859 17.1019 43.8858 17.0303V9.17197H41.5677C41.5328 9.1734 41.4979 9.16786 41.4652 9.15563C41.4325 9.1434 41.4026 9.12477 41.3773 9.10083C41.352 9.07689 41.3317 9.04814 41.3178 9.01626C41.3039 8.98437 41.2965 8.95003 41.2961 8.91529V7.52534C41.2965 7.49054 41.3039 7.45626 41.3178 7.42437C41.3317 7.39249 41.352 7.36374 41.3773 7.3398C41.4026 7.31586 41.4325 7.29723 41.4652 7.285C41.4979 7.27277 41.5328 7.26717 41.5677 7.2686H48.5101C48.5821 7.26529 48.6525 7.29037 48.7059 7.33849C48.7593 7.3866 48.7914 7.45374 48.7952 7.52534V8.91586C48.7913 8.98723 48.7592 9.05414 48.7059 9.10214C48.6527 9.15009 48.5825 9.17517 48.5107 9.17197Z" fill="#F8F8F8"/>
+				<path d="M55.9089 17.2439C55.434 17.3111 54.6352 17.4193 53.17 17.4193C51.4198 17.4193 49.8734 16.9737 49.8734 14.5172V10.0334C49.8734 7.57689 51.4338 7.14478 53.1835 7.14478C54.6482 7.14478 55.434 7.25295 55.9089 7.3202C56.0988 7.34712 56.1804 7.41489 56.1804 7.59032V8.84746C56.1803 8.91906 56.1516 8.98769 56.1008 9.03832C56.0499 9.08895 55.9809 9.11746 55.9089 9.11763H53.0483C52.4106 9.11763 52.1802 9.3334 52.1802 10.0356V11.2642H55.8008C55.8727 11.2644 55.9417 11.2929 55.9926 11.3435C56.0435 11.3941 56.0722 11.4628 56.0723 11.5344V12.8167C56.0722 12.8883 56.0435 12.9569 55.9926 13.0076C55.9417 13.0582 55.8727 13.0867 55.8008 13.0868H52.1802V14.5177C52.1802 15.2194 52.4106 15.4357 53.0483 15.4357H55.9089C55.9809 15.4359 56.0499 15.4644 56.1008 15.5151C56.1516 15.5657 56.1803 15.6343 56.1804 15.7059V16.9613C56.1804 17.1357 56.0988 17.2169 55.9089 17.2439Z" fill="#F8F8F8"/>
+				<path d="M66.1452 17.2976H63.988C63.812 17.2976 63.7303 17.2416 63.6355 17.0954L61.7652 14.1411L60.0709 17.0303C59.9755 17.1923 59.8812 17.3004 59.7326 17.3004H57.7252C57.5892 17.3004 57.5217 17.2192 57.5217 17.125C57.5246 17.092 57.5337 17.0598 57.5486 17.0303L60.4875 12.1543L57.5183 7.52421C57.5035 7.49953 57.4943 7.4717 57.4915 7.44296C57.496 7.39336 57.52 7.34753 57.5577 7.3149C57.5955 7.28221 57.6446 7.2653 57.6949 7.26753H59.8789C60.028 7.26753 60.1366 7.40261 60.2166 7.52421L61.9526 10.2509L63.632 7.52421C63.7 7.40261 63.8223 7.26753 63.9703 7.26753H65.9777C66.028 7.2653 66.0772 7.28221 66.1149 7.3149C66.1526 7.34753 66.1766 7.39336 66.1812 7.44296C66.1783 7.4717 66.1692 7.49953 66.1543 7.52421L63.1995 12.1828L66.2812 17.0303C66.3052 17.0715 66.3189 17.1178 66.3217 17.1654C66.3223 17.2439 66.2537 17.2976 66.1452 17.2976Z" fill="#F8F8F8"/>
+				<path d="M38.0446 7.2956C37.9962 7.29577 37.9493 7.31257 37.9119 7.34326C37.8745 7.37389 37.849 7.41646 37.8396 7.46377L35.8702 14.7157C35.8431 14.8642 35.8026 14.918 35.6803 14.918C35.5581 14.918 35.5175 14.8619 35.4905 14.7157L33.5188 7.46206C33.5094 7.4148 33.4839 7.37223 33.4465 7.34155C33.4091 7.31092 33.3622 7.29406 33.3138 7.29395H31.3754C31.3438 7.294 31.3127 7.30109 31.2843 7.31475C31.2559 7.3284 31.231 7.34823 31.2114 7.3728C31.1918 7.39737 31.1781 7.426 31.1711 7.45663C31.1642 7.4872 31.1643 7.51897 31.1714 7.54955C31.1714 7.54955 33.5769 15.8663 33.6033 15.9481C33.9244 16.939 34.7035 17.4126 35.695 17.4126C36.6391 17.4126 37.4633 16.9166 37.7855 15.9509C37.8238 15.8389 40.1757 7.54897 40.1757 7.54897C40.1827 7.51846 40.1827 7.48675 40.1758 7.45623C40.1688 7.42572 40.155 7.39715 40.1354 7.37263C40.1158 7.34812 40.091 7.32835 40.0626 7.31475C40.0343 7.30109 40.0033 7.294 39.9718 7.29395L38.0446 7.2956Z" fill="#F8F8F8"/>
+				<path d="M26.1015 0H5.03293C3.39927 0 2.35317 1.72792 3.1176 3.1644L5.22503 7.13474H1.40452C1.16257 7.1348 0.924743 7.19708 0.714068 7.31543C0.503394 7.43383 0.327016 7.60428 0.202019 7.8104C0.0770211 8.01651 0.00763994 8.25126 0.000595699 8.49188C-0.00644852 8.73245 0.0490824 8.97085 0.16181 9.18383L6.94034 21.9485C7.05988 22.173 7.23857 22.3608 7.45737 22.4918C7.67611 22.6229 7.92663 22.6921 8.18194 22.6921C8.43725 22.6921 8.68777 22.6229 8.90651 22.4918C9.12531 22.3608 9.30405 22.173 9.42354 21.9485L11.2645 18.5005L13.5742 22.8508C14.387 24.3809 16.5891 24.3837 17.4048 22.8553L27.965 3.08425C28.7114 1.68589 27.6929 0 26.1015 0ZM16.6375 8.44737L12.0841 16.9743C12.0046 17.1236 11.8856 17.2485 11.7401 17.3357C11.5945 17.4227 11.4279 17.4687 11.258 17.4687C11.0882 17.4687 10.9215 17.4227 10.776 17.3357C10.6304 17.2485 10.5115 17.1236 10.4319 16.9743L5.92246 8.48326C5.84708 8.34165 5.80971 8.18314 5.814 8.02297C5.81828 7.86285 5.86406 7.70651 5.94691 7.56914C6.02971 7.43177 6.1468 7.318 6.2868 7.23886C6.4268 7.15971 6.58497 7.11783 6.746 7.11737H15.8342C15.9912 7.11737 16.1455 7.15783 16.2822 7.23474C16.4189 7.31166 16.5331 7.4224 16.614 7.55628C16.6949 7.69017 16.7395 7.84263 16.7437 7.99874C16.7478 8.15491 16.7112 8.30943 16.6375 8.44737Z" fill="#F8F8F8"/>
+				</svg>
+
+				</span>
+
+                            <span class = "px-[4px]">				<svg width="47" height="30" viewBox="0 0 47 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M40.1967 1.70833C41.4785 1.70833 42.7079 2.21756 43.6143 3.12398C44.5208 4.03041 45.03 5.25979 45.03 6.54167V23.4583C45.03 24.7402 44.5208 25.9696 43.6143 26.876C42.7079 27.7824 41.4785 28.2917 40.1967 28.2917H6.36332C5.08144 28.2917 3.85207 27.7824 2.94564 26.876C2.03921 25.9696 1.52999 24.7402 1.52999 23.4583V6.54167C1.52999 5.25979 2.03921 4.03041 2.94564 3.12398C3.85207 2.21756 5.08144 1.70833 6.36332 1.70833H40.1967ZM40.1967 0.5H6.36332C4.76097 0.5 3.22425 1.13653 2.09122 2.26956C0.958186 3.4026 0.321655 4.93932 0.321655 6.54167L0.321655 23.4583C0.321655 25.0607 0.958186 26.5974 2.09122 27.7304C3.22425 28.8635 4.76097 29.5 6.36332 29.5H40.1967C41.799 29.5 43.3357 28.8635 44.4688 27.7304C45.6018 26.5974 46.2383 25.0607 46.2383 23.4583V6.54167C46.2383 4.93932 45.6018 3.4026 44.4688 2.26956C43.3357 1.13653 41.799 0.5 40.1967 0.5Z" fill="#F8F8F8"/>
+				<path d="M22.2049 10.2634C21.3427 9.67338 20.3358 9.32989 19.2927 9.26995C18.2497 9.21002 17.21 9.43592 16.2859 9.92331C15.3618 10.4107 14.5882 11.1411 14.0486 12.0357C13.509 12.9304 13.2239 13.9553 13.2239 15.0001C13.2239 16.0449 13.509 17.0698 14.0486 17.9644C14.5882 18.8591 15.3618 19.5895 16.2859 20.0769C17.21 20.5642 18.2497 20.7901 19.2927 20.7302C20.3358 20.6703 21.3427 20.3268 22.2049 19.7367C21.052 18.4282 20.416 16.7441 20.416 15.0001C20.416 13.2561 21.052 11.572 22.2049 10.2634Z" fill="#F8F8F8"/>
+				<path d="M27.5811 20.7397C30.751 20.7397 33.3207 18.17 33.3207 15.0001C33.3207 11.8302 30.751 9.2605 27.5811 9.2605C24.4113 9.2605 21.8416 11.8302 21.8416 15.0001C21.8416 18.17 24.4113 20.7397 27.5811 20.7397Z" fill="#F8F8F8"/>
+				</svg>
+
+				</span>
+
+                            <span class = "px-[4px]">				<svg width="47" height="30" viewBox="0 0 47 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M40.1133 1.70833C41.3952 1.70833 42.6245 2.21756 43.531 3.12398C44.4374 4.03041 44.9466 5.25979 44.9466 6.54167V23.4583C44.9466 24.7402 44.4374 25.9696 43.531 26.876C42.6245 27.7824 41.3952 28.2917 40.1133 28.2917H6.27995C4.99807 28.2917 3.76869 27.7824 2.86227 26.876C1.95584 25.9696 1.44661 24.7402 1.44661 23.4583V6.54167C1.44661 5.25979 1.95584 4.03041 2.86227 3.12398C3.76869 2.21756 4.99807 1.70833 6.27995 1.70833H40.1133ZM40.1133 0.5H6.27995C4.6776 0.5 3.14088 1.13653 2.00784 2.26956C0.874812 3.4026 0.238281 4.93932 0.238281 6.54167L0.238281 23.4583C0.238281 25.0607 0.874812 26.5974 2.00784 27.7304C3.14088 28.8635 4.6776 29.5 6.27995 29.5H40.1133C41.7156 29.5 43.2524 28.8635 44.3854 27.7304C45.5184 26.5974 46.1549 25.0607 46.1549 23.4583V6.54167C46.1549 4.93932 45.5184 3.4026 44.3854 2.26956C43.2524 1.13653 41.7156 0.5 40.1133 0.5Z" fill="#F8F8F8"/>
+				<path d="M19.2819 10.8432L15.8139 19.1687H13.5302L11.8506 12.5832C11.837 12.427 11.7831 12.2769 11.6942 12.1477C11.6052 12.0185 11.4842 11.9146 11.3431 11.8462C10.6733 11.5254 9.96741 11.286 9.2406 11.1332V10.8916H12.8656C13.1055 10.8944 13.3367 10.9821 13.5181 11.1392C13.6994 11.2962 13.8193 11.5125 13.8564 11.7495L14.7506 16.5828L16.9739 10.9157L19.2819 10.8432ZM28.1389 16.4499C28.1389 14.2628 25.1181 14.142 25.1423 13.1512C25.1423 12.8612 25.4323 12.5349 26.0485 12.4624C26.7732 12.389 27.5042 12.5143 28.1631 12.8249L28.5377 11.0607C27.8949 10.8256 27.2163 10.7029 26.5319 10.6982C24.4173 10.6982 22.9069 11.822 22.9069 13.4532C22.9069 14.6616 23.9702 15.3141 24.7798 15.7128C25.5894 16.1116 25.8914 16.3895 25.8914 16.752C25.8914 17.3078 25.2269 17.5495 24.6106 17.5616C23.8449 17.5817 23.0871 17.4027 22.4114 17.042L21.9885 18.8666C22.7594 19.1629 23.5794 19.3105 24.4052 19.3016C26.6527 19.3016 28.1148 18.1899 28.1269 16.4499H28.1389ZM33.7094 19.1687H35.6789L33.9631 10.8432H32.1506C31.9536 10.843 31.761 10.9016 31.5975 11.0113C31.4339 11.1211 31.3067 11.2771 31.2323 11.4595L28.0302 19.1687H30.2777L30.7127 17.9603H33.4556L33.7094 19.1687ZM31.2927 16.2203L32.4285 13.1028L33.1052 16.2082L31.2927 16.2203ZM22.3027 10.8432L20.5385 19.1687H18.436L20.2002 10.8432H22.3027Z" fill="#F8F8F8"/>
+				</svg>
+				</span>
+
+                            <span class = "px-[4px] xl:pr-0">				<svg width="47" height="30" viewBox="0 0 47 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M40.03 1.70833C41.3119 1.70833 42.5413 2.21756 43.4477 3.12398C44.3541 4.03041 44.8634 5.25979 44.8634 6.54167V23.4583C44.8634 24.7402 44.3541 25.9696 43.4477 26.876C42.5413 27.7824 41.3119 28.2917 40.03 28.2917H6.1967C4.91482 28.2917 3.68544 27.7824 2.77901 26.876C1.87259 25.9696 1.36336 24.7402 1.36336 23.4583V6.54167C1.36336 5.25979 1.87259 4.03041 2.77901 3.12398C3.68544 2.21756 4.91482 1.70833 6.1967 1.70833H40.03ZM40.03 0.5H6.1967C4.59435 0.5 3.05762 1.13653 1.92459 2.26956C0.79156 3.4026 0.155029 4.93932 0.155029 6.54167L0.155029 23.4583C0.155029 25.0607 0.79156 26.5974 1.92459 27.7304C3.05762 28.8635 4.59435 29.5 6.1967 29.5H40.03C41.6324 29.5 43.1691 28.8635 44.3021 27.7304C45.4352 26.5974 46.0717 25.0607 46.0717 23.4583V6.54167C46.0717 4.93932 45.4352 3.4026 44.3021 2.26956C43.1691 1.13653 41.6324 0.5 40.03 0.5Z" fill="#F8F8F8"/>
+				<path d="M13.1625 11.3749C12.9255 11.1422 12.6405 10.9642 12.3273 10.8535C12.0142 10.7429 11.6805 10.7023 11.35 10.7345H8.84873C8.76678 10.7337 8.6873 10.7626 8.62508 10.8159C8.56285 10.8693 8.5221 10.9434 8.5104 11.0245L7.49539 17.4166C7.49206 17.4461 7.49481 17.476 7.50348 17.5044C7.51214 17.5329 7.52655 17.5592 7.5458 17.5819C7.56505 17.6045 7.58873 17.623 7.61539 17.6361C7.64206 17.6492 7.67113 17.6568 7.70081 17.6582H8.90915C8.98235 17.6587 9.05372 17.6354 9.11255 17.5918C9.17137 17.5482 9.21448 17.4867 9.2354 17.4166L9.51331 15.6766C9.52502 15.5955 9.56577 15.5213 9.62799 15.468C9.69022 15.4147 9.76969 15.3857 9.85164 15.3866H10.6371C10.9842 15.4249 11.3354 15.3919 11.6693 15.2895C12.0032 15.1871 12.3126 15.0175 12.5785 14.7912C12.8445 14.5649 13.0613 14.2866 13.2158 13.9734C13.3702 13.6601 13.459 13.3187 13.4766 12.9699C13.5449 12.6973 13.5521 12.413 13.4978 12.1373C13.4435 11.8616 13.329 11.6013 13.1625 11.3749ZM11.6279 13.0545C11.495 13.9487 10.8062 13.9487 10.1537 13.9487H9.77915L10.0329 12.2691C10.0412 12.2199 10.0661 12.175 10.1035 12.142C10.1409 12.109 10.1885 12.0899 10.2383 12.0878H10.4196C10.8666 12.0878 11.2896 12.0878 11.5071 12.3537C11.5784 12.454 11.6263 12.569 11.6472 12.6903C11.6681 12.8116 11.6615 12.9361 11.6279 13.0545ZM18.8054 13.0545H17.5971C17.5717 13.0529 17.5462 13.0562 17.5221 13.0645C17.498 13.0727 17.4758 13.0856 17.4567 13.1025C17.4376 13.1193 17.4221 13.1397 17.4109 13.1626C17.3997 13.1855 17.3932 13.2103 17.3916 13.2357V13.5741L17.3071 13.4532C17.1294 13.2649 16.91 13.1209 16.6666 13.0328C16.4232 12.9446 16.1624 12.9148 15.9054 12.9457C15.2436 12.9586 14.6088 13.2102 14.118 13.6544C13.6272 14.0985 13.3136 14.7052 13.235 15.3624C13.1739 15.6846 13.1821 16.0162 13.2592 16.335C13.3363 16.6538 13.4805 16.9525 13.6821 17.2112C13.8686 17.4209 14.1005 17.5854 14.3601 17.6922C14.6197 17.7989 14.9003 17.8452 15.1804 17.8274C15.4885 17.8302 15.794 17.7707 16.0785 17.6523C16.363 17.5339 16.6206 17.3592 16.8358 17.1387V17.4649C16.8305 17.4948 16.8318 17.5254 16.8397 17.5547C16.8476 17.584 16.8618 17.6111 16.8815 17.6342C16.9011 17.6573 16.9256 17.6758 16.9532 17.6883C16.9809 17.7008 17.0109 17.7071 17.0412 17.7066H18.1166C18.1986 17.7074 18.2781 17.6785 18.3403 17.6251C18.4025 17.5718 18.4433 17.4977 18.455 17.4166L19.0954 13.2962C19.1201 13.2562 19.1303 13.2089 19.1243 13.1623C19.1183 13.1157 19.0966 13.0726 19.0627 13.04C19.0287 13.0075 18.9847 12.9876 18.9379 12.9837C18.8911 12.9797 18.8443 12.9919 18.8054 13.0182V13.0545ZM17.1379 15.3624C17.0909 15.6858 16.9274 15.9808 16.6782 16.1922C16.429 16.4035 16.1113 16.5167 15.7846 16.5103C15.6356 16.5195 15.4866 16.4949 15.3485 16.4384C15.2104 16.3819 15.0869 16.295 14.9871 16.1841C14.8958 16.0653 14.8313 15.9283 14.7979 15.7823C14.7645 15.6363 14.7631 15.4848 14.7937 15.3382C14.8294 15.0071 14.986 14.7007 15.2334 14.4778C15.4809 14.2548 15.8019 14.131 16.135 14.1299C16.2847 14.1231 16.4341 14.15 16.5721 14.2085C16.7102 14.2671 16.8333 14.3558 16.9325 14.4682C17.0329 14.5916 17.1036 14.7364 17.1392 14.8914C17.1748 15.0465 17.1744 15.2076 17.1379 15.3624ZM25.1612 13.0182H23.9529C23.8952 13.0175 23.8382 13.0316 23.7875 13.0591C23.7367 13.0866 23.6938 13.1266 23.6629 13.1753L22.0075 15.592L21.3066 13.2357C21.2839 13.1634 21.239 13.0999 21.1783 13.0544C21.1176 13.0089 21.0442 12.9836 20.9683 12.982H19.76C19.7266 12.9825 19.6937 12.9908 19.664 13.0061C19.6343 13.0214 19.6085 13.0433 19.5886 13.0702C19.5687 13.0971 19.5553 13.1282 19.5494 13.1611C19.5435 13.194 19.5453 13.2278 19.5546 13.2599L20.8837 17.1749L19.6754 18.9391C19.6529 18.9699 19.6395 19.0064 19.6367 19.0445C19.6338 19.0825 19.6416 19.1206 19.6591 19.1545C19.6767 19.1884 19.7034 19.2167 19.7361 19.2362C19.7689 19.2558 19.8064 19.2659 19.8446 19.2653H21.0529C21.1093 19.2663 21.1652 19.2536 21.2157 19.2284C21.2662 19.2031 21.3098 19.1661 21.3429 19.1203L25.3304 13.3082C25.3441 13.2783 25.3503 13.2455 25.3487 13.2127C25.3471 13.1798 25.3376 13.1478 25.321 13.1194C25.3044 13.091 25.2812 13.0669 25.2534 13.0493C25.2256 13.0317 25.194 13.0211 25.1612 13.0182ZM30.9491 11.3749C30.7122 11.1422 30.4271 10.9642 30.114 10.8535C29.8008 10.7429 29.4672 10.7023 29.1366 10.7345H26.6354C26.5534 10.7337 26.474 10.7626 26.4117 10.8159C26.3495 10.8693 26.3088 10.9434 26.2971 11.0245L25.2941 17.4166C25.2888 17.4464 25.2901 17.4771 25.298 17.5064C25.3059 17.5356 25.3202 17.5628 25.3398 17.5859C25.3595 17.609 25.384 17.6275 25.4116 17.64C25.4392 17.6525 25.4692 17.6587 25.4996 17.6582H26.7804C26.8373 17.6586 26.8923 17.6377 26.9348 17.5998C26.9772 17.5618 27.004 17.5094 27.01 17.4528L27.3 15.6282C27.3117 15.5471 27.3524 15.473 27.4147 15.4197C27.4769 15.3663 27.5564 15.3374 27.6383 15.3382H28.4358C28.7826 15.3748 29.1332 15.3405 29.4663 15.2374C29.7994 15.1344 30.1082 14.9647 30.3737 14.7387C30.6393 14.5127 30.8561 14.2351 31.0111 13.9227C31.1661 13.6103 31.256 13.2697 31.2754 12.9216C31.3323 12.6553 31.3326 12.38 31.2764 12.1136C31.2202 11.8472 31.1087 11.5955 30.9491 11.3749ZM29.4266 13.0907C29.2816 13.9849 28.605 13.9849 27.9404 13.9849H27.5658L27.8316 12.3053C27.8332 12.2799 27.8397 12.2551 27.8509 12.2322C27.8621 12.2093 27.8776 12.1889 27.8967 12.172C27.9158 12.1552 27.938 12.1423 27.9621 12.1341C27.9862 12.1258 28.0117 12.1224 28.0371 12.1241H28.2062C28.6533 12.1241 29.0883 12.1241 29.3058 12.3899C29.3719 12.4858 29.4168 12.5946 29.4377 12.7092C29.4585 12.8238 29.4548 12.9415 29.4266 13.0545V13.0907ZM36.5921 13.0907H35.3837C35.3332 13.0904 35.2843 13.1087 35.2464 13.1421C35.2085 13.1756 35.1843 13.2218 35.1783 13.272V13.6103L35.0937 13.4895C34.9136 13.301 34.6921 13.157 34.4467 13.0689C34.2014 12.9808 33.9388 12.9511 33.68 12.982C33.0197 12.9998 32.3875 13.2532 31.8978 13.6964C31.408 14.1396 31.093 14.7434 31.0096 15.3987C30.9484 15.7209 30.9567 16.0524 31.0338 16.3712C31.1109 16.69 31.255 16.9887 31.4566 17.2474C31.6451 17.4581 31.879 17.6231 32.1407 17.7299C32.4024 17.8366 32.685 17.8824 32.9671 17.8637C33.2752 17.8665 33.5807 17.8069 33.8652 17.6885C34.1497 17.5702 34.4073 17.3955 34.6225 17.1749V17.5012C34.6171 17.531 34.6184 17.5617 34.6263 17.5909C34.6342 17.6202 34.6485 17.6474 34.6682 17.6705C34.6878 17.6936 34.7123 17.712 34.7399 17.7246C34.7675 17.7371 34.7976 17.7433 34.8279 17.7428H35.9033C35.9853 17.7437 36.0647 17.7147 36.127 17.6614C36.1892 17.6081 36.2299 17.5339 36.2416 17.4528L36.8216 13.2599C36.8252 13.2283 36.8219 13.1964 36.8118 13.1662C36.8017 13.1361 36.7851 13.1086 36.7632 13.0855C36.7413 13.0625 36.7147 13.0445 36.6851 13.0329C36.6555 13.0213 36.6238 13.0163 36.5921 13.0182V13.0907ZM34.9246 15.3624C34.8828 15.6858 34.7225 15.9823 34.4747 16.1943C34.227 16.4064 33.9093 16.519 33.5833 16.5103C33.4325 16.5205 33.2814 16.4964 33.1412 16.4399C33.001 16.3834 32.8754 16.2959 32.7737 16.1841C32.6838 16.0648 32.621 15.9273 32.5897 15.7812C32.5584 15.6351 32.5594 15.4839 32.5925 15.3382C32.6254 15.0081 32.7794 14.7019 33.0249 14.4787C33.2704 14.2555 33.5899 14.1313 33.9216 14.1299C34.0747 14.1192 34.2281 14.1451 34.3692 14.2054C34.5103 14.2657 34.635 14.3588 34.733 14.4768C34.831 14.5949 34.8995 14.7346 34.9328 14.8844C34.9661 15.0342 34.9633 15.1898 34.9246 15.3382V15.3624ZM39.3591 10.6982H38.1508C38.1027 10.6997 38.0564 10.7171 38.0192 10.7477C37.982 10.7784 37.9561 10.8204 37.9454 10.8674L36.9787 17.4166C36.9734 17.4464 36.9747 17.4771 36.9826 17.5064C36.9905 17.5356 37.0048 17.5628 37.0244 17.5859C37.044 17.609 37.0685 17.6275 37.0962 17.64C37.1238 17.6525 37.1538 17.6587 37.1841 17.6582H38.2112C38.2932 17.6591 38.3727 17.6301 38.4349 17.5768C38.4971 17.5235 38.5379 17.4494 38.5496 17.3682L39.5646 10.9278C39.5662 10.8993 39.5622 10.8706 39.5527 10.8436C39.5433 10.8166 39.5286 10.7917 39.5095 10.7704C39.4904 10.7491 39.4673 10.7317 39.4415 10.7193C39.4157 10.707 39.3877 10.6998 39.3591 10.6982Z" fill="#F8F8F8"/>
+				</svg>
+				</span>
+
+                            <span class = "px-[4px]">				<svg width="46" height="30" viewBox="0 0 46 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M39.9467 1.70833C41.2285 1.70833 42.4579 2.21756 43.3643 3.12398C44.2708 4.03041 44.78 5.25979 44.78 6.54167V23.4583C44.78 24.7402 44.2708 25.9696 43.3643 26.876C42.4579 27.7824 41.2285 28.2917 39.9467 28.2917H6.11332C4.83144 28.2917 3.60207 27.7824 2.69564 26.876C1.78921 25.9696 1.27999 24.7402 1.27999 23.4583V6.54167C1.27999 5.25979 1.78921 4.03041 2.69564 3.12398C3.60207 2.21756 4.83144 1.70833 6.11332 1.70833H39.9467ZM39.9467 0.5H6.11332C4.51097 0.5 2.97425 1.13653 1.84122 2.26956C0.708186 3.4026 0.0716553 4.93932 0.0716553 6.54167L0.0716553 23.4583C0.0716553 25.0607 0.708186 26.5974 1.84122 27.7304C2.97425 28.8635 4.51097 29.5 6.11332 29.5H39.9467C41.549 29.5 43.0857 28.8635 44.2188 27.7304C45.3518 26.5974 45.9883 25.0607 45.9883 23.4583V6.54167C45.9883 4.93932 45.3518 3.4026 44.2188 2.26956C43.0857 1.13653 41.549 0.5 39.9467 0.5Z" fill="#F8F8F8"/>
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M8.28239 12.2295L7.5616 10.5288L6.84493 12.2295H8.28239ZM24.1612 11.5522C24.0165 11.6373 23.8454 11.6401 23.6403 11.6401H22.361V10.6926H23.6577C23.8412 10.6926 24.0327 10.7005 24.1571 10.7695C24.2937 10.8317 24.3782 10.9639 24.3782 11.1467C24.3782 11.3331 24.2978 11.4831 24.1612 11.5522C24.1612 11.5522 24.2978 11.4831 24.1612 11.5522ZM33.2877 12.2295L32.559 10.5288L31.8342 12.2295H33.2877ZM16.2754 14.0703H15.1958L15.1918 10.7291L13.6648 14.0703H12.7401L11.2091 10.7261V14.0703H9.06723L8.66258 13.1188H6.46992L6.06116 14.0703H4.91739L6.80321 9.80417H8.36784L10.1589 13.8433V9.80417H11.8777L13.2559 12.6982L14.5219 9.80417H16.2752V14.0703H16.2754ZM20.5782 14.0703H17.0602V9.80417H20.5782V10.6926H18.1133V11.4615H20.519V12.336H18.1133V13.188H20.5782V14.0703ZM25.5384 10.9531C25.5384 11.6333 25.0695 11.9847 24.7963 12.0902C25.0267 12.1752 25.2235 12.3252 25.3172 12.4495C25.4659 12.6617 25.4916 12.8512 25.4916 13.2323V14.0703H24.4294L24.4254 13.5323C24.4254 13.2756 24.4508 12.9064 24.2592 12.7012C24.1053 12.5512 23.8707 12.5186 23.4916 12.5186H22.3611V14.0703H21.3081V9.80417H23.7303C24.2685 9.80417 24.665 9.81794 25.0055 10.0085C25.3386 10.1991 25.5384 10.4773 25.5384 10.9531C25.5384 10.9531 25.5384 10.4773 25.5384 10.9531ZM27.2236 14.0703H26.1491V9.80417H27.2236V14.0703ZM39.6896 14.0703H38.1973L36.2012 10.8683V14.0703H34.0565L33.6467 13.1188H31.4591L31.0615 14.0703H29.8292C29.3173 14.0703 28.6692 13.9607 28.3022 13.5985C27.9321 13.2362 27.7395 12.7456 27.7395 11.9698C27.7395 11.3371 27.8546 10.7587 28.3072 10.3016C28.6477 9.96116 29.1808 9.80417 29.9065 9.80417H30.9261V10.7183H29.9279C29.5436 10.7183 29.3266 10.7736 29.1176 10.971C28.938 11.1506 28.8149 11.4902 28.8149 11.9374C28.8149 12.3944 28.9087 12.724 29.1044 12.9393C29.2665 13.1081 29.5612 13.1593 29.8384 13.1593H30.3113L31.7955 9.8043H33.3735L35.1564 13.8395V9.8043H36.7599L38.611 12.7754V9.8043H39.6896V14.0703ZM4.90516 14.9083H6.70447L7.11018 13.9607H8.01847L8.42312 14.9083H11.9634V14.1838L12.2794 14.9114H14.1173L14.4333 14.173V14.9083H23.2315L23.2274 13.3528H23.3977C23.5169 13.3568 23.5517 13.3675 23.5517 13.5581V14.9083H28.1022V14.5462C28.4692 14.7366 29.0401 14.9083 29.7913 14.9083H31.7057L32.1154 13.9607H33.0237L33.4244 14.9083H37.1135V14.0082L37.6721 14.9083H40.6284V8.95825H37.7027V9.66096L37.293 8.95825H34.2909V9.66096L33.9147 8.95825H29.8596C29.1808 8.95825 28.5842 9.05 28.1022 9.30568V8.95825H25.3038V9.30568C24.9971 9.04215 24.5792 8.95825 24.1145 8.95825H13.8909L13.205 10.495L12.5005 8.95825H9.28038V9.66096L8.92663 8.95825H6.18036L4.90503 11.7872V14.9083H4.90516ZM42.3634 18.0498H40.4441C40.2524 18.0498 40.1251 18.0567 40.0179 18.1269C39.9068 18.196 39.864 18.2985 39.864 18.4339C39.864 18.5949 39.9578 18.7044 40.0943 18.7517C40.2054 18.7892 40.3247 18.8001 40.5001 18.8001L41.0709 18.8149C41.6468 18.8287 42.0313 18.9245 42.2657 19.1583C42.3083 19.1909 42.334 19.2274 42.3634 19.264V18.0498ZM42.3634 20.863C42.1076 21.2253 41.6091 21.4089 40.9343 21.4089H38.9006V20.4939H40.926C41.127 20.4939 41.2676 20.4683 41.3522 20.3882C41.4256 20.3222 41.4767 20.2263 41.4767 20.1099C41.4767 19.9856 41.4256 19.8869 41.3481 19.8277C41.2717 19.7626 41.1605 19.733 40.9771 19.733C39.9882 19.7004 38.7546 19.7626 38.7546 18.4123C38.7546 17.7933 39.1605 17.1418 40.2656 17.1418H42.3632V16.2928H40.4143C39.8261 16.2928 39.3989 16.4292 39.0963 16.6413V16.2928H36.2136C35.7526 16.2928 35.2114 16.4035 34.9555 16.6413V16.2928H29.8077V16.6413C29.398 16.3551 28.7067 16.2928 28.3876 16.2928H24.9921V16.6413C24.6679 16.3373 23.9471 16.2928 23.5078 16.2928H19.7076L18.838 17.2041L18.0235 16.2928H12.3468V22.247H17.9167L18.8127 21.3213L19.6568 22.247L23.0901 22.2499V20.8493H23.4277C23.8832 20.8561 24.4205 20.8383 24.8945 20.6399V22.2468H27.7264V20.695H27.863C28.0373 20.695 28.0545 20.7019 28.0545 20.8706V22.2467H36.6571C37.2033 22.2467 37.7742 22.1113 38.0903 21.8657V22.2467H40.8191C41.3869 22.2467 41.9414 22.1696 42.3634 21.9722V20.863ZM38.1626 19.1583C38.3677 19.3638 38.4776 19.6232 38.4776 20.0624C38.4776 20.9804 37.8853 21.4089 36.8232 21.4089H34.7721V20.4939H36.815C37.0147 20.4939 37.1564 20.4683 37.2452 20.3882C37.3176 20.3222 37.3695 20.2263 37.3695 20.1099C37.3695 19.9856 37.3133 19.8869 37.241 19.8277C37.1605 19.7626 37.0494 19.733 36.866 19.733C35.8812 19.7004 34.6479 19.7626 34.6479 18.4123C34.6479 17.7933 35.0494 17.1418 36.1535 17.1418H38.2647V18.05H36.3329C36.1414 18.05 36.0169 18.057 35.911 18.1271C35.7956 18.1962 35.7528 18.2988 35.7528 18.4341C35.7528 18.5951 35.8508 18.7046 35.9833 18.752C36.0943 18.7894 36.2137 18.8004 36.3931 18.8004L36.96 18.8152C37.5317 18.8287 37.9241 18.9244 38.1626 19.1583C38.1626 19.1583 37.9241 18.9244 38.1626 19.1583ZM28.66 18.8948C28.5192 18.9757 28.345 18.9827 28.14 18.9827H26.8607V18.0243H28.1575C28.345 18.0243 28.5326 18.0282 28.66 18.1014C28.7965 18.1705 28.8781 18.3026 28.8781 18.4852C28.8781 18.6678 28.7965 18.8149 28.66 18.8948C28.66 18.8948 28.7965 18.8149 28.66 18.8948ZM29.296 19.4258C29.5305 19.5096 29.7221 19.6598 29.8119 19.7841C29.9606 19.9924 29.9821 20.1868 29.9864 20.563V21.4089H28.9291V20.875C28.9291 20.6183 28.9547 20.2382 28.7589 20.0398C28.605 19.8869 28.3705 19.8504 27.9863 19.8504H26.8609V21.4089H25.8027V17.1417H28.234C28.7671 17.1417 29.1554 17.1645 29.5011 17.3431C29.8334 17.5375 30.0425 17.8039 30.0425 18.2907C30.0423 18.9717 29.5732 19.3193 29.296 19.4258C29.296 19.4258 29.5732 19.3193 29.296 19.4258ZM30.6264 17.1417H34.1412V18.0242H31.6751V18.8H34.081V19.6706H31.6751V20.5196L34.1412 20.5235V21.4089H30.6264V17.1417ZM23.5212 19.111H22.1603V18.0243H23.5335C23.9137 18.0243 24.1776 18.1743 24.1776 18.5475C24.1776 18.9165 23.9259 19.111 23.5212 19.111ZM21.1114 21.0208L19.4946 19.2826L21.1114 17.5997V21.0208ZM16.936 20.5196H14.3468V19.6706H16.6587V18.8H14.3468V18.0242H16.987L18.1389 19.2677L16.936 20.5196ZM25.3082 18.5475C25.3082 19.7329 24.3948 19.9776 23.4743 19.9776H22.1603V21.4089H20.1134L18.8167 19.9963L17.4691 21.4089H13.2977V17.1417H17.5333L18.8289 18.5404L20.1685 17.1417H23.5335C24.3692 17.1417 25.3082 17.3657 25.3082 18.5475C25.3082 18.5475 25.3082 17.3657 25.3082 18.5475Z" fill="#F8F8F8"/>
+				</svg>
+				</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    
+	
+</div><!-- .wrap -->
+
+<link data-minify="1" rel='preload'  href='https://magazine.arcaplanet.it/wp-content/cache/min/1/ajax/libs/font-awesome/6.4.0/css/all.min.css?ver=1698604746' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link data-minify="1" rel='preload'  href='https://magazine.arcaplanet.it/wp-content/cache/min/1/1.13.2/css/jquery.dataTables.min.css?ver=1698604746' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<link data-minify="1" rel='preload'  href='https://magazine.arcaplanet.it/wp-content/cache/min/1/wp-content/themes/arcablog/css/datatable.css?ver=1698604746' data-rocket-async="style" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="this.removeAttribute('data-rocket-async')"  media='all' />
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id='rocket-preload-links-js-extra'>
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/magazine.arcaplanet.it","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src='https://magazine.arcaplanet.it/wp-content/cache/min/1/ajax/libs/vue/3.0.0-alpha.10/vue.global.prod.js?ver=1698604746' id='vue-js-js' defer></script>
+<script id='arcablog-script-js-extra'>
+var vctheme = {"ajax_url":"https:\/\/magazine.arcaplanet.it\/wp-admin\/admin-ajax.php","home_url":"https:\/\/magazine.arcaplanet.it\/"};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src='https://magazine.arcaplanet.it/wp-content/themes/arcablog/js/script.min.js?ver=1700870114' id='arcablog-script-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://magazine.arcaplanet.it/wp-includes/js/jquery/jquery.min.js?ver=3.7.0' id='jquery-core-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://magazine.arcaplanet.it/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1' id='jquery-migrate-js' defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src='https://magazine.arcaplanet.it/wp-content/cache/min/1/1.13.2/js/jquery.dataTables.min.js?ver=1698604746' id='tadatable-js-js' defer></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src='https://magazine.arcaplanet.it/wp-content/cache/min/1/rowgroup/1.3.0/js/dataTables.rowGroup.min.js?ver=1698604746' id='rowgroup-js-js' defer></script>
+<script type="rocketlazyloadscript" data-rocket-src='https://cdn.datatables.net/plug-ins/1.13.2/i18n/it-IT.json?ver=1700870114' id='translate-dt-js' defer></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://magazine.arcaplanet.it/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+<script>"use strict";function wprRemoveCPCSS(){var preload_stylesheets=document.querySelectorAll('link[data-rocket-async="style"][rel="preload"]');if(preload_stylesheets&&0<preload_stylesheets.length)for(var stylesheet_index=0;stylesheet_index<preload_stylesheets.length;stylesheet_index++){var media=preload_stylesheets[stylesheet_index].getAttribute("media")||"all";if(window.matchMedia(media).matches)return void setTimeout(wprRemoveCPCSS,200)}var elem=document.getElementById("rocket-critical-css");elem&&"remove"in elem&&elem.remove()}window.addEventListener?window.addEventListener("load",wprRemoveCPCSS):window.attachEvent&&window.attachEvent("onload",wprRemoveCPCSS);</script><noscript><link rel='stylesheet' id='wp-block-library-css' href='https://magazine.arcaplanet.it/wp-includes/css/dist/block-library/style.min.css?ver=6.3.2' media='all' /><link data-minify="1" rel='stylesheet' id='wordpress-popular-posts-css-css' href='https://magazine.arcaplanet.it/wp-content/cache/min/1/wp-content/plugins/wordpress-popular-posts/assets/css/wpp.css?ver=1698604746' media='all' /><link rel='stylesheet' id='slidejscss-css' href='https://magazine.arcaplanet.it/wp-content/themes/arcablog/css/splide.min.css?ver=1700870114' media='all' /><link data-minify="1" rel='stylesheet' id='arcablog-style-css' href='https://magazine.arcaplanet.it/wp-content/cache/min/1/wp-content/themes/arcablog/style.css?ver=1698604746' media='all' /><link data-minify="1" rel='stylesheet' id='font-awesome-css' href='https://magazine.arcaplanet.it/wp-content/cache/min/1/ajax/libs/font-awesome/6.4.0/css/all.min.css?ver=1698604746' media='all' /><link data-minify="1" rel='stylesheet' id='tadatable-css-css' href='https://magazine.arcaplanet.it/wp-content/cache/min/1/1.13.2/css/jquery.dataTables.min.css?ver=1698604746' media='all' /><link data-minify="1" rel='stylesheet' id='style-dt-css' href='https://magazine.arcaplanet.it/wp-content/cache/min/1/wp-content/themes/arcablog/css/datatable.css?ver=1698604746' media='all' /></noscript></body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
