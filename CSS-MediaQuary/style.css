@@ -17,6 +17,8 @@
     width: 300px;
     height: 500px;
     background-color: green;
+    margin-left: 25px;
+    border-radius: 20px;
 }
 
 img{
@@ -32,8 +34,17 @@ img{
     border-radius: 50%;
 }
 header{
+    margin-top: 5px;
+    margin-left: 5px;
+    
     display: grid;
+    /*
     width: 150px;
     grid-template-columns: repeat(2,150px);
+    */
     grid-template-rows:50px;
+    grid-template-columns: 1fr 4fr;
+    align-content: stretch;
+    align-items: center;
+
 }
