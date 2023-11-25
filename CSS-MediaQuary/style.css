@@ -1,11 +1,10 @@
-{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
 .contenuto{
-    background-color: aqua;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,6 +18,7 @@
     background:linear-gradient(#b2b2b2, #efefef);
     margin-left: 25px;
     border-radius: 20px;
+
 }
 
 img{
@@ -36,9 +36,8 @@ img{
 header{
     margin-top: 5px;
     margin-left: 10px;
-
     display: grid;
-    /
+    /*
     width: 150px;
     grid-template-columns: repeat(2,150px);
     */
