@@ -85,9 +85,9 @@ p{
     font-size: 10px;
     margin: 15px;
 }
-#un o{
+#uno{
     grid-area: u;
-    justify-self:right ;
+    justify-self: right;
     align-self: flex-end;
 }
 #due{
